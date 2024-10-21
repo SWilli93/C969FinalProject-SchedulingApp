@@ -11,7 +11,7 @@ namespace ScottWilliamsC969FinalProject.Database
 {
     public class DBConnection
     {
-        public static MySqlConnection conn { get; set; }
+        public static MySqlConnection Conn { get; set; }
 
         public static void startConnection()
         {
@@ -19,9 +19,9 @@ namespace ScottWilliamsC969FinalProject.Database
             try
             {
                 string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
-                conn = new MySqlConnection(constr);
+                Conn = new MySqlConnection(constr);
 
-                conn.Open();
+                Conn.Open();
 
                 MessageBox.Show("Connection is open");
             }
@@ -37,9 +37,9 @@ namespace ScottWilliamsC969FinalProject.Database
 
             try
             {
-                if (conn != null)
+                if (Conn != null)
                 {
-                    conn.Close();
+                    Conn.Close();
                 }
             }
             catch (MySqlException ex) 

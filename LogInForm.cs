@@ -1,17 +1,12 @@
 ﻿using MySql.Data.MySqlClient;
+using ScottWilliamsC969FinalProject.Database;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Configuration;
-using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
-using System.Linq;
 using System.Resources;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ScottWilliamsC969FinalProject
@@ -31,15 +26,20 @@ namespace ScottWilliamsC969FinalProject
 
         private void SubmitButton_Click(object sender, EventArgs e)
         {
-            //AppointmentForm apptfrm = new AppointmentForm();
-            //apptfrm.Show();
 
             string username = LoginFormUsernameTextBox.Text;
             string password = LoginFormPasswordTextBox.Text;
 
             try 
             { 
-
+                if (ValidateCredentials(username, password, DBConnection.Conn))
+                {
+                    RecordLogin(username);
+                    MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    AppointmentForm apptfrm = new AppointmentForm();
+                    apptfrm.Show();
+                    this.Close();
+                }
             }
             catch (Exception ex) 
             {
@@ -89,6 +89,33 @@ namespace ScottWilliamsC969FinalProject
             {
                 MessageBox.Show($"Error writing to log file: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        // validate User Credentials
+        private bool ValidateCredentials(string username, string password, MySqlConnection conn)
+        {
+            bool isValidUser = false;
+
+            // Query to check if the user exists with the given username and password
+            string query = "SELECT COUNT(1) FROM Users WHERE Username = @Username AND Password = @Password";
+
+            using (MySqlCommand command = new MySqlCommand(query, conn))
+            {
+                command.Parameters.AddWithValue("@Username", username);
+                command.Parameters.AddWithValue("@Password", password);  // Handle hashing if necessary
+
+                try
+                {
+                    int result = (int)command.ExecuteScalar();  // Returns 1 if a match is found, 0 otherwise
+                    isValidUser = result == 1;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Database error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            return isValidUser;
         }
     }
 }
