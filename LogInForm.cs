@@ -117,5 +117,17 @@ namespace ScottWilliamsC969FinalProject
 
             return isValidUser;
         }
+
+        private void LogInFormForgotPasswordLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
+        private void LogInFormCreateUserLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            AddUserForm newUser = new AddUserForm();
+            newUser.Show();
+            this.Close();
+        }
     }
 }

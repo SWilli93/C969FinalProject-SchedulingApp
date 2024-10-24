@@ -35,6 +35,8 @@
             this.UsernameLabel = new System.Windows.Forms.Label();
             this.PasswordLabel = new System.Windows.Forms.Label();
             this.LoginErrorLabel = new System.Windows.Forms.Label();
+            this.LogInFormCreateUserLink = new System.Windows.Forms.LinkLabel();
+            this.LogInFormForgotPasswordLink = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // LogInLabel
@@ -99,11 +101,35 @@
             this.LoginErrorLabel.Text = "The Username and Password do not match";
             this.LoginErrorLabel.Visible = false;
             // 
+            // LogInFormCreateUserLink
+            // 
+            this.LogInFormCreateUserLink.AutoSize = true;
+            this.LogInFormCreateUserLink.Location = new System.Drawing.Point(94, 289);
+            this.LogInFormCreateUserLink.Name = "LogInFormCreateUserLink";
+            this.LogInFormCreateUserLink.Size = new System.Drawing.Size(88, 13);
+            this.LogInFormCreateUserLink.TabIndex = 10002;
+            this.LogInFormCreateUserLink.TabStop = true;
+            this.LogInFormCreateUserLink.Text = "Create New User";
+            this.LogInFormCreateUserLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LogInFormCreateUserLink_LinkClicked);
+            // 
+            // LogInFormForgotPasswordLink
+            // 
+            this.LogInFormForgotPasswordLink.AutoSize = true;
+            this.LogInFormForgotPasswordLink.Location = new System.Drawing.Point(157, 200);
+            this.LogInFormForgotPasswordLink.Name = "LogInFormForgotPasswordLink";
+            this.LogInFormForgotPasswordLink.Size = new System.Drawing.Size(92, 13);
+            this.LogInFormForgotPasswordLink.TabIndex = 10003;
+            this.LogInFormForgotPasswordLink.TabStop = true;
+            this.LogInFormForgotPasswordLink.Text = "Forgot Password?";
+            this.LogInFormForgotPasswordLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LogInFormForgotPasswordLink_LinkClicked);
+            // 
             // LogInForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 311);
+            this.Controls.Add(this.LogInFormForgotPasswordLink);
+            this.Controls.Add(this.LogInFormCreateUserLink);
             this.Controls.Add(this.LoginErrorLabel);
             this.Controls.Add(this.PasswordLabel);
             this.Controls.Add(this.UsernameLabel);
@@ -128,6 +154,8 @@
         private System.Windows.Forms.Label UsernameLabel;
         private System.Windows.Forms.Label PasswordLabel;
         private System.Windows.Forms.Label LoginErrorLabel;
+        private System.Windows.Forms.LinkLabel LogInFormCreateUserLink;
+        private System.Windows.Forms.LinkLabel LogInFormForgotPasswordLink;
     }
 }
 

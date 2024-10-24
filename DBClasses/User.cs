@@ -14,7 +14,7 @@ namespace ScottWilliamsC969FinalProject.DBClasses
 
         public string Password { get; set; }
 
-        public int active { get; set; }
+        public int Active { get; set; }
 
         public string CreatedBy { get; set; }
 

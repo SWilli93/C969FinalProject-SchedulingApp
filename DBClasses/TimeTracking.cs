@@ -18,9 +18,10 @@ namespace ScottWilliamsC969FinalProject.DBClasses
             LastUpdate = DateTime.UtcNow;
         }
 
-        public void UpdateLastModified()
+        public DateTime UpdateLastModified()
         {
             LastUpdate = DateTime.UtcNow;
+            return LastUpdate;
         }
     }
 }
