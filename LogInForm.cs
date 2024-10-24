@@ -56,7 +56,7 @@ namespace ScottWilliamsC969FinalProject
             CultureInfo culture = new CultureInfo(currentCulture.TwoLetterISOLanguageName);
             Thread.CurrentThread.CurrentUICulture = culture;
 
-            ResourceManager rm = new ResourceManager("ScottWilliamsC969FinalProject.Messages", typeof(LogInForm).Assembly);
+            ResourceManager rm = new ResourceManager("ScottWilliamsC969FinalProject.ResourceFiles.Messages", typeof(LogInForm).Assembly);
 
             // Example of setting translated text in UI
             UsernameLabel.Text = rm.GetString("Username");
@@ -97,17 +97,20 @@ namespace ScottWilliamsC969FinalProject
             bool isValidUser = false;
 
             // Query to check if the user exists with the given username and password
-            string query = "SELECT COUNT(1) FROM Users WHERE Username = @Username AND Password = @Password";
+            string query = "SELECT COUNT(1) FROM User WHERE Username = @Username AND Password = @Password";
 
-            using (MySqlCommand command = new MySqlCommand(query, conn))
+            using (MySqlCommand command = new MySqlCommand(query, DBConnection.Conn))
             {
                 command.Parameters.AddWithValue("@Username", username);
                 command.Parameters.AddWithValue("@Password", password);  // Handle hashing if necessary
 
                 try
                 {
-                    int result = (int)command.ExecuteScalar();  // Returns 1 if a match is found, 0 otherwise
-                    isValidUser = result == 1;
+                    if (command.ExecuteScalar() != null)
+                    { 
+                    isValidUser = true;
+                    };  // Returns 1 if a match is found, 0 otherwise
+                    command.ExecuteScalar();
                 }
                 catch (Exception ex)
                 {
