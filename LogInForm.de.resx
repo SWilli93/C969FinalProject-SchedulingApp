@@ -117,22 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Username" xml:space="preserve">
-    <value>Username</value>
-  </data>
-  <data name="Password" xml:space="preserve">
-    <value>Password</value>
-  </data>
-  <data name="Submit" xml:space="preserve">
-    <value>Submit</value>
-  </data>
-  <data name="LoginError" xml:space="preserve">
-    <value>The username and password did not match</value>
-  </data>
   <data name="Create New User" xml:space="preserve">
-    <value>Create New User</value>
+    <value>Neuen Benutzer erstellen</value>
   </data>
   <data name="Forgot Password?" xml:space="preserve">
-    <value>Forgot Password?</value>
+    <value>Passwort vergessen?</value>
   </data>
 </root>

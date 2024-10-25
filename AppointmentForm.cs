@@ -15,6 +15,7 @@ namespace ScottWilliamsC969FinalProject
         public AppointmentForm()
         {
             InitializeComponent();
+            var user = DBClasses.User.CurrentUser;
         }
 
         private void weeklyDayAppointments_Click(object sender, EventArgs e)
@@ -29,6 +30,11 @@ namespace ScottWilliamsC969FinalProject
                 this.AppointmentFormMonthCalendar.Hide();
                 desiredDates.Hide();
             }
+        }
+
+        private void AppointmentForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

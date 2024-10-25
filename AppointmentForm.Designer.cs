@@ -149,6 +149,7 @@
             this.Controls.Add(this.AppointmentFormAppointmentsDataGridView);
             this.Name = "AppointmentForm";
             this.Text = "AppointmentForm";
+            this.Load += new System.EventHandler(this.AppointmentForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.AppointmentFormAppointmentsDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

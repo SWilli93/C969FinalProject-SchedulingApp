@@ -19,5 +19,7 @@ namespace ScottWilliamsC969FinalProject.DBClasses
         public string CreatedBy { get; set; }
 
         public string LastUpdatedBy { get; set; }
+
+        public static int CurrentUser { get; set; }
     }
 }

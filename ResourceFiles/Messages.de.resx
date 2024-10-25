@@ -129,4 +129,10 @@
   <data name="LoginError" xml:space="preserve">
     <value>Benutzername und Passwort stimmen nicht überein.</value>
   </data>
+  <data name="Create New User" xml:space="preserve">
+    <value>Neuen Benutzer erstellen</value>
+  </data>
+  <data name="Forgot Password?" xml:space="preserve">
+    <value>Passwort vergessen?</value>
+  </data>
 </root>

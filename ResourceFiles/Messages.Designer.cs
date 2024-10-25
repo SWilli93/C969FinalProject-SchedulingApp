@@ -61,6 +61,24 @@ namespace ScottWilliamsC969FinalProject.ResourceFiles {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create New User.
+        /// </summary>
+        internal static string Create_New_User {
+            get {
+                return ResourceManager.GetString("Create New User", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Forgot Password?.
+        /// </summary>
+        internal static string Forgot_Password_ {
+            get {
+                return ResourceManager.GetString("Forgot Password?", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The username and password did not match.
         /// </summary>
         internal static string LoginError {

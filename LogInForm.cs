@@ -31,19 +31,33 @@ namespace ScottWilliamsC969FinalProject
             string password = LoginFormPasswordTextBox.Text;
 
             try 
-            { 
+            {
                 if (ValidateCredentials(username, password, DBConnection.Conn))
                 {
                     RecordLogin(username);
                     MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     AppointmentForm apptfrm = new AppointmentForm();
                     apptfrm.Show();
-                    this.Close();
+                    //this.Close();
+
+                    string query = "SELECT userId FROM User WHERE Username = @Username AND Password = @Password";
+
+                    using (MySqlCommand command = new MySqlCommand(query, DBConnection.Conn))
+                    {
+                        command.Parameters.AddWithValue("@Username", username);
+                        command.Parameters.AddWithValue("@Password", password);
+
+                        DBClasses.User.CurrentUser = (int)command.ExecuteScalar();
+                    }
+                }
+                else
+                {
+                    DisplayError();
                 }
             }
             catch (Exception ex) 
             {
-                DisplayError(ex.Message);
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -58,23 +72,25 @@ namespace ScottWilliamsC969FinalProject
 
             ResourceManager rm = new ResourceManager("ScottWilliamsC969FinalProject.ResourceFiles.Messages", typeof(LogInForm).Assembly);
 
-            // Example of setting translated text in UI
+
             UsernameLabel.Text = rm.GetString("Username");
             PasswordLabel.Text = rm.GetString("Password");
             LoginFormSubmitButton.Text = rm.GetString("Submit");
             LoginErrorLabel.Text = rm.GetString("LoginError");
+            LogInFormForgotPasswordLink.Text = rm.GetString("Forgot Password?");
+            LogInFormCreateUserLink.Text = rm.GetString("Create New User");
         }
 
-        // Displaying login Errors
-        private void DisplayError(string errorMessage)
+
+        private void DisplayError()
         {
-            LoginErrorLabel.Text = errorMessage;
+            //LoginErrorLabel.Text = errorMessage;
             LoginErrorLabel.Visible = true;
             LoginErrorLabel.ForeColor = Color.Red;
         }
 
 
-        // Recording each Login
+
         private void RecordLogin(string username)
         {
             string filePath = "Login_History.txt";
@@ -106,11 +122,8 @@ namespace ScottWilliamsC969FinalProject
 
                 try
                 {
-                    if (command.ExecuteScalar() != null)
-                    { 
-                    isValidUser = true;
-                    };  // Returns 1 if a match is found, 0 otherwise
-                    command.ExecuteScalar();
+                    var result = command.ExecuteScalar();
+                    isValidUser = Convert.ToInt32(result) == 1;
                 }
                 catch (Exception ex)
                 {
