@@ -9,6 +9,7 @@ namespace ScottWilliamsC969FinalProject
 {
     public class Address : TimeTracking
     {
+        private UserUpdate _userUpdate;
         public int AddressId { get; set; }
 
         public string AddressName { get; set; }
@@ -21,8 +22,23 @@ namespace ScottWilliamsC969FinalProject
 
         public string PhoneNumber { get; set; }
 
-        public string CreatedBy { get; set; }
+        public string CreatedBy => _userUpdate.CreatedBy;
 
-        public string LastUpdatedBy { get; set; }
+        public string LastUpdateBy => _userUpdate.LastUpdateBy;
+
+
+        public Address()
+        {
+            _userUpdate = new UserUpdate();
+
+            _userUpdate.CreatedBy = _userUpdate.CreatedBy;
+            _userUpdate.LastUpdateBy = _userUpdate.LastUpdateBy;
+        }
+
+        public void UpdateLastUpdateBy(int userId)
+        {
+
+            _userUpdate.UpdateLastUpdateBy(userId);
+        }
     }
 }

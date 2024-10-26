@@ -37,7 +37,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.AddCustomerFormSaveButton = new System.Windows.Forms.Button();
             this.AddCustomerNameTextBox = new System.Windows.Forms.TextBox();
             this.AddCustomerPhoneNumberTextBox = new System.Windows.Forms.TextBox();
             this.AddCustomerAddress1TextBox = new System.Windows.Forms.TextBox();
@@ -130,14 +130,15 @@
             this.label9.TabIndex = 8;
             this.label9.Text = "Phone Number";
             // 
-            // button1
+            // AddCustomerFormSaveButton
             // 
-            this.button1.Location = new System.Drawing.Point(81, 330);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(200, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Save";
-            this.button1.UseVisualStyleBackColor = true;
+            this.AddCustomerFormSaveButton.Location = new System.Drawing.Point(81, 330);
+            this.AddCustomerFormSaveButton.Name = "AddCustomerFormSaveButton";
+            this.AddCustomerFormSaveButton.Size = new System.Drawing.Size(200, 23);
+            this.AddCustomerFormSaveButton.TabIndex = 9;
+            this.AddCustomerFormSaveButton.Text = "Save";
+            this.AddCustomerFormSaveButton.UseVisualStyleBackColor = true;
+            this.AddCustomerFormSaveButton.Click += new System.EventHandler(this.AddCustomerFormSaveButton_Click);
             // 
             // AddCustomerNameTextBox
             // 
@@ -224,7 +225,7 @@
             this.Controls.Add(this.AddCustomerAddress1TextBox);
             this.Controls.Add(this.AddCustomerPhoneNumberTextBox);
             this.Controls.Add(this.AddCustomerNameTextBox);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.AddCustomerFormSaveButton);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -252,7 +253,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button AddCustomerFormSaveButton;
         private System.Windows.Forms.TextBox AddCustomerNameTextBox;
         private System.Windows.Forms.TextBox AddCustomerPhoneNumberTextBox;
         private System.Windows.Forms.TextBox AddCustomerAddress1TextBox;

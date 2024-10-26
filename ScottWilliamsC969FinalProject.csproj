@@ -136,6 +136,7 @@
     <Compile Include="Database\DBConnection.cs" />
     <Compile Include="DBClasses\TimeTracking.cs" />
     <Compile Include="DBClasses\User.cs" />
+    <Compile Include="DBClasses\UserUpdate.cs" />
     <Compile Include="LogInForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -16,5 +16,15 @@ namespace ScottWilliamsC969FinalProject
         {
             InitializeComponent();
         }
+
+        private void AddCustomerFormSaveButton_Click(object sender, EventArgs e)
+        {
+            Country newCountry = new Country();
+            newCountry.CountryName = AddCustomerCountryTextBox.Text;
+
+            City newCity = new City();
+            newCity.CityName = AddCustomerCityTextBox.Text;
+            newCity.CountryId = newCountry.CountryId;
+        }
     }
 }

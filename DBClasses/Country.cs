@@ -9,12 +9,23 @@ namespace ScottWilliamsC969FinalProject
 {
     public class Country : TimeTracking
     {
+        private UserUpdate _userUpdate;
         public int CountryId { get; set; }
 
         public string CountryName { get; set; }
 
-        public string CreatedBy { get; set; }
+        public string CreatedBy => _userUpdate.CreatedBy;
 
-        public string LastUpdatedBy { get; set; }
+        public string LastUpdateBy => _userUpdate.LastUpdateBy;
+
+        public Country()
+        {
+            _userUpdate = new UserUpdate();
+
+            _userUpdate.CreatedBy = _userUpdate.CreatedBy;
+            _userUpdate.LastUpdateBy = _userUpdate.LastUpdateBy;
+        }
     }
+
+
 }

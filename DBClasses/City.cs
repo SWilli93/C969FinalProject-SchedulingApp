@@ -1,22 +1,38 @@
-﻿using ScottWilliamsC969FinalProject.DBClasses;
+﻿using MySql.Data.MySqlClient;
+using ScottWilliamsC969FinalProject.Database;
+using ScottWilliamsC969FinalProject.DBClasses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace ScottWilliamsC969FinalProject
 {
     public class City : TimeTracking
     {
+        private UserUpdate _userUpdate;
+
         public int CityId { get; set; }
         public string CityName { get; set; }
 
         public int CountryId { get; set; }
 
-        public string CreatedBy { get; set; }
+        public string CreatedBy => _userUpdate.CreatedBy;
 
-        public string LastUpdatedBy { get; set; }
+        public string LastUpdateBy => _userUpdate.LastUpdateBy;
 
+        public City()
+        {
+            _userUpdate = new UserUpdate();
+
+            _userUpdate.CreatedBy = _userUpdate.CreatedBy;
+            _userUpdate.LastUpdateBy = _userUpdate.LastUpdateBy;
+        }
     }
+
+
+    
 }

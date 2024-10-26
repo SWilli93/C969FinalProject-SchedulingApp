@@ -9,6 +9,7 @@ namespace ScottWilliamsC969FinalProject
 {
     public class Customer : TimeTracking
     {
+        private UserUpdate _userUpdate;
         public int CustomerId { get; set; }
         public string CustomerName { get; set; }
 
@@ -16,8 +17,22 @@ namespace ScottWilliamsC969FinalProject
 
         public int Active { get; set; }
 
-        public string CreatedBy { get; set; }
+        public string CreatedBy => _userUpdate.CreatedBy;
 
-        public string LastUpdatedBy { get; set; }
+        public string LastUpdateBy => _userUpdate.LastUpdateBy;
+    
+        public Customer()
+        {
+            _userUpdate = new UserUpdate();
+
+            _userUpdate.CreatedBy = _userUpdate.CreatedBy;
+            _userUpdate.LastUpdateBy = _userUpdate.LastUpdateBy;
+        }
+
+        public void UpdateLastUpdateBy(int userId)
+        {
+
+            _userUpdate.UpdateLastUpdateBy(userId);
+        }
     }
 }

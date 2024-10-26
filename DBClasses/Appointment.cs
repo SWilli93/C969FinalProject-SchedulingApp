@@ -8,6 +8,7 @@ namespace ScottWilliamsC969FinalProject.DBClasses
 {
     public class Appointment : TimeTracking
     {
+        private UserUpdate _userUpdate;
         public int AppointmentId { get; set; }
 
         public int CustomerId { get; set; }
@@ -24,9 +25,24 @@ namespace ScottWilliamsC969FinalProject.DBClasses
 
         public string Url { get; set; }
 
-        public string CreatedBy { get; set; }
+        public string CreatedBy => _userUpdate.CreatedBy;
 
-        public string LastUpdatedBy { get; set; }
+        public string LastUpdateBy => _userUpdate.LastUpdateBy;
+
+
+        public Appointment() 
+        {
+            _userUpdate = new UserUpdate();
+
+            _userUpdate.CreatedBy = _userUpdate.CreatedBy;
+            _userUpdate.LastUpdateBy = _userUpdate.LastUpdateBy;
+        }
+
+        public void UpdateLastUpdateBy(int userId)
+        {
+
+            _userUpdate.UpdateLastUpdateBy(userId);
+        }
 
     }
 }
