@@ -77,5 +77,10 @@ namespace ScottWilliamsC969FinalProject
                 return false;
             }
         }
+
+        private void AddUserForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

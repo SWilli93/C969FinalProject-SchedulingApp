@@ -21,5 +21,6 @@ namespace ScottWilliamsC969FinalProject.DBClasses
         public string LastUpdatedBy { get; set; }
 
         public static int CurrentUser { get; set; }
+
     }
 }
