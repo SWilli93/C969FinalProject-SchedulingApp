@@ -16,5 +16,11 @@ namespace ScottWilliamsC969FinalProject
         {
             InitializeComponent();
         }
+
+        private void CustomerFormAddButton_Click(object sender, EventArgs e)
+        {
+            AddCustomerForm addCustomerForm = new AddCustomerForm();
+            addCustomerForm.Show();
+        }
     }
 }

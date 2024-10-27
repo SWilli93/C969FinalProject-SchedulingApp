@@ -192,6 +192,7 @@
             // AddCustomerActiveButton
             // 
             this.AddCustomerActiveButton.AutoSize = true;
+            this.AddCustomerActiveButton.Checked = true;
             this.AddCustomerActiveButton.Location = new System.Drawing.Point(151, 286);
             this.AddCustomerActiveButton.Name = "AddCustomerActiveButton";
             this.AddCustomerActiveButton.Size = new System.Drawing.Size(55, 17);
@@ -202,6 +203,7 @@
             // 
             // AddCustomerNotActiveButton
             // 
+            this.AddCustomerNotActiveButton.AutoCheck = false;
             this.AddCustomerNotActiveButton.AutoSize = true;
             this.AddCustomerNotActiveButton.Location = new System.Drawing.Point(227, 286);
             this.AddCustomerNotActiveButton.Name = "AddCustomerNotActiveButton";

@@ -15,7 +15,7 @@ namespace ScottWilliamsC969FinalProject.DBClasses
         {
             int userId = 0;
 
-            string query = "SELECT COUNT(1) FROM User WHERE Username = @Username AND Password = @Password";
+            string query = "SELECT userId FROM user WHERE userName = @Username AND password = @Password";
 
             using (MySqlCommand command = new MySqlCommand(query, DBConnection.Conn))
             {

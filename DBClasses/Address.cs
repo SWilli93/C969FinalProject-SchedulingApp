@@ -27,12 +27,9 @@ namespace ScottWilliamsC969FinalProject
         public string LastUpdateBy => _userUpdate.LastUpdateBy;
 
 
-        public Address()
+        public Address() : base()
         {
             _userUpdate = new UserUpdate();
-
-            _userUpdate.CreatedBy = _userUpdate.CreatedBy;
-            _userUpdate.LastUpdateBy = _userUpdate.LastUpdateBy;
         }
 
         public void UpdateLastUpdateBy(int userId)

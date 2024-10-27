@@ -18,14 +18,9 @@ namespace ScottWilliamsC969FinalProject
 
         public string LastUpdateBy => _userUpdate.LastUpdateBy;
 
-        public Country()
+        public Country() : base()
         {
             _userUpdate = new UserUpdate();
-
-            _userUpdate.CreatedBy = _userUpdate.CreatedBy;
-            _userUpdate.LastUpdateBy = _userUpdate.LastUpdateBy;
         }
     }
-
-
 }

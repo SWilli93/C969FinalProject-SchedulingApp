@@ -24,12 +24,9 @@ namespace ScottWilliamsC969FinalProject
 
         public string LastUpdateBy => _userUpdate.LastUpdateBy;
 
-        public City()
+        public City() : base()
         {
             _userUpdate = new UserUpdate();
-
-            _userUpdate.CreatedBy = _userUpdate.CreatedBy;
-            _userUpdate.LastUpdateBy = _userUpdate.LastUpdateBy;
         }
     }
 

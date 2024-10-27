@@ -16,6 +16,7 @@ namespace ScottWilliamsC969FinalProject
     {
         public LogInForm()
         {
+
             InitializeComponent();
             SetLanguage();
         }
@@ -36,11 +37,11 @@ namespace ScottWilliamsC969FinalProject
                 if (ValidateCredentials(username, password))
                 {
                     RecordLogin(username);
+                    User.CurrentUser = UserQueries.GetUserId(username, password);
                     MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     AppointmentForm apptfrm = new AppointmentForm();
                     apptfrm.Show();
-                    DBClasses.User.CurrentUser = UserQueries.GetUserId(username, password);
-                    //this.Close();
+                    //this.Hide();
                 }
                 else
                 {

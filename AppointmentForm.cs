@@ -1,4 +1,7 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using ScottWilliamsC969FinalProject.Database;
+using ScottWilliamsC969FinalProject.DBClasses;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -34,7 +37,12 @@ namespace ScottWilliamsC969FinalProject
 
         private void AppointmentForm_Load(object sender, EventArgs e)
         {
+        }
 
+        private void AppointmentFormManageCustomersButton_Click(object sender, EventArgs e)
+        {
+            CustomerForm customerForm = new CustomerForm();
+            customerForm.Show();
         }
     }
 }

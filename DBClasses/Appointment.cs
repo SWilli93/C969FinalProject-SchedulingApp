@@ -30,12 +30,9 @@ namespace ScottWilliamsC969FinalProject.DBClasses
         public string LastUpdateBy => _userUpdate.LastUpdateBy;
 
 
-        public Appointment() 
+        public Appointment() : base()
         {
             _userUpdate = new UserUpdate();
-
-            _userUpdate.CreatedBy = _userUpdate.CreatedBy;
-            _userUpdate.LastUpdateBy = _userUpdate.LastUpdateBy;
         }
 
         public void UpdateLastUpdateBy(int userId)

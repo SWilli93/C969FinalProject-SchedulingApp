@@ -100,6 +100,7 @@
             this.CustomerFormAddButton.TabIndex = 6;
             this.CustomerFormAddButton.Text = "Add";
             this.CustomerFormAddButton.UseVisualStyleBackColor = true;
+            this.CustomerFormAddButton.Click += new System.EventHandler(this.CustomerFormAddButton_Click);
             // 
             // CustomerFormDeleteButton
             // 
