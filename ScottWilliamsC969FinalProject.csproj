@@ -138,6 +138,7 @@
     <Compile Include="DBClasses\User.cs" />
     <Compile Include="DBClasses\UserQueries.cs" />
     <Compile Include="DBClasses\UserUpdate.cs" />
+    <Compile Include="DBClasses\Validator.cs" />
     <Compile Include="LogInForm.cs">
       <SubType>Form</SubType>
     </Compile>
