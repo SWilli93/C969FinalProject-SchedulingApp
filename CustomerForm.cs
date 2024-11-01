@@ -54,10 +54,10 @@ namespace ScottWilliamsC969FinalProject
                     DataTable customerTable = new DataTable();
                     adapter.Fill(customerTable);
 
-                    // Setting the DataSource of dataGridViewCustomers
+
                     CustomerFormCustomersDataGridView.DataSource = customerTable;
 
-                    // Optional: Adjust column headers for better readability
+
                     CustomerFormCustomersDataGridView.Columns["customerId"].HeaderText = "Customer ID";
                     CustomerFormCustomersDataGridView.Columns["customerName"].HeaderText = "Customer Name";
                     CustomerFormCustomersDataGridView.Columns["Phone"].HeaderText = "Phone Number";
