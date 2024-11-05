@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace ScottWilliamsC969FinalProject.DBClasses
 {
-    public static class UserQueries
+    public static class DBQueries
     {
         public static int GetUserId(string name, string password)
         {
@@ -131,15 +131,29 @@ namespace ScottWilliamsC969FinalProject.DBClasses
             return countryId;
         }
 
-        public static int GetAddressId(string name)
+        public static int GetAddressId(string address1, string address2, int cityId, string postalCode, string phone)
         {
             int addressId = 0;
 
-            string query = "SELECT addressId FROM address WHERE address = @address";
+            string query = @"
+                SELECT 
+                    addressId
+                FROM 
+                    address 
+                WHERE 
+                    address = @address AND
+                    address2 = @address2 AND
+                    cityId = @cityId AND
+                    postalCode = @postalCode AND
+                    phone = @phone";
 
             using (MySqlCommand command = new MySqlCommand(query, DBConnection.Conn))
             {
-                command.Parameters.AddWithValue("@address", name);
+                command.Parameters.AddWithValue("@address", address1);
+                command.Parameters.AddWithValue("@address2", address2);
+                command.Parameters.AddWithValue("@cityId", cityId);
+                command.Parameters.AddWithValue("@postalCode", postalCode);
+                command.Parameters.AddWithValue("@phone", phone);
 
                 try
                 {

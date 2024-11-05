@@ -36,7 +36,7 @@ namespace ScottWilliamsC969FinalProject.DBClasses
                 }
             }
 
-            int newCountryId = UserQueries.GetCountryId(newCountry.CountryName);
+            int newCountryId = DBQueries.GetCountryId(newCountry.CountryName);
             return newCountryId;
         }
 
@@ -68,7 +68,7 @@ namespace ScottWilliamsC969FinalProject.DBClasses
                 }
             }
 
-            int newCityId = UserQueries.GetCityId(newCity.CityName);
+            int newCityId = DBQueries.GetCityId(newCity.CityName);
             return newCityId;
         }
 
@@ -106,7 +106,7 @@ namespace ScottWilliamsC969FinalProject.DBClasses
                 }
             }
 
-            int newAddressId = UserQueries.GetAddressId(newAddress.AddressName);
+            int newAddressId = DBQueries.GetAddressId(newAddress.AddressName, newAddress.AddressName2, newAddress.CityId, newAddress.PostalCode, newAddress.PhoneNumber);
             return newAddressId;
         }
 
@@ -139,7 +139,7 @@ namespace ScottWilliamsC969FinalProject.DBClasses
                 {
                     MessageBox.Show($"Error saving Customer: {ex.Message}");
                 }
-            }
+            } 
         }
     }
 }

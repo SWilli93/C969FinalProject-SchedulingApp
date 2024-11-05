@@ -116,6 +116,7 @@
     <Compile Include="AddUserForm.Designer.cs">
       <DependentUpon>AddUserForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Database\DBUpdate.cs" />
     <Compile Include="DBClasses\Address.cs" />
     <Compile Include="AppointmentForm.cs">
       <SubType>Form</SubType>
@@ -134,10 +135,10 @@
       <DependentUpon>CustomerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Database\DBConnection.cs" />
-    <Compile Include="DBClasses\DBInsert.cs" />
+    <Compile Include="Database\DBInsert.cs" />
     <Compile Include="DBClasses\TimeTracking.cs" />
     <Compile Include="DBClasses\User.cs" />
-    <Compile Include="DBClasses\UserQueries.cs" />
+    <Compile Include="Database\DBQueries.cs" />
     <Compile Include="DBClasses\UserUpdate.cs" />
     <Compile Include="DBClasses\Validator.cs" />
     <Compile Include="EditCustomer.cs">

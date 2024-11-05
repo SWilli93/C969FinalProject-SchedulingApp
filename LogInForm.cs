@@ -37,7 +37,7 @@ namespace ScottWilliamsC969FinalProject
                 if (ValidateCredentials(username, password))
                 {
                     RecordLogin(username);
-                    User.CurrentUser = UserQueries.GetUserId(username, password);
+                    User.CurrentUser = DBQueries.GetUserId(username, password);
                     MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     AppointmentForm apptfrm = new AppointmentForm();
                     apptfrm.Show();
@@ -103,7 +103,7 @@ namespace ScottWilliamsC969FinalProject
         {
             bool isValidUser = false;
 
-            if (UserQueries.GetUserId(username, password) != 0)
+            if (DBQueries.GetUserId(username, password) != 0)
             {
                 isValidUser = true;
             }

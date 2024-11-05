@@ -49,7 +49,7 @@ namespace ScottWilliamsC969FinalProject
 
                     // Process Country
                     var countryName = AddCustomerCountryTextBox.Text.Trim();
-                    int countryId = UserQueries.GetCountryId(countryName);
+                    int countryId = DBQueries.GetCountryId(countryName);
                     if (countryId == 0)
                     {
                         countryId = DBInsert.InsertCountry(countryName);
@@ -57,7 +57,7 @@ namespace ScottWilliamsC969FinalProject
 
                     // Process City
                     var cityName = AddCustomerCityTextBox.Text.Trim();
-                    int cityId = UserQueries.GetCityId(cityName);
+                    int cityId = DBQueries.GetCityId(cityName);
                     if (cityId == 0)
                     {
                         cityId = DBInsert.InsertCity(countryId, cityName);
@@ -69,7 +69,11 @@ namespace ScottWilliamsC969FinalProject
                     var postalCode = AddCustomerPostalCodeTextBox.Text.Trim();
                     var phoneNumber = AddCustomerPhoneNumberTextBox.Text.Trim();
 
-                    var addressId = DBInsert.InsertAddress(cityId, address1, address2, postalCode, phoneNumber);
+                    var addressId = DBQueries.GetAddressId(address1, address2, cityId, postalCode, phoneNumber);
+                    if (addressId == 0)
+                    {
+                        addressId = DBInsert.InsertAddress(cityId, address1, address2, postalCode, phoneNumber);
+                    }
 
                     // Process Customer
                     var customerName = AddCustomerNameTextBox.Text.Trim();

@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 using System.Windows.Forms;
 
 namespace ScottWilliamsC969FinalProject
@@ -76,27 +77,77 @@ namespace ScottWilliamsC969FinalProject
         {
             try
             {
-                if (!Validator.ValidateCustomer(EditCustomerNameTextBox.Text))
+                using (var transaction = DBConnection.Conn.BeginTransaction())
                 {
-                    MessageBox.Show("Customer name is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                if (!Validator.ValidateAddress(EditCustomerAddress1TextBox.Text, EditCustomerAddress2TextBox.Text, EditCustomerPostalCodeTextBox.Text, EditCustomerCityTextBox.Text, EditCustomerCountryTextBox.Text))
-                {
-                    MessageBox.Show("All address fields must be filled. Use 'N/A' if needed.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                if (!Validator.ValidatePhoneNumber(EditCustomerPhoneNumberTextBox.Text))
-                {
-                    MessageBox.Show("Phone number can only contain digits and dashes.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+                    try
+                    { 
+                        // Start Validation Checks
+                        if (!Validator.ValidateCustomer(EditCustomerNameTextBox.Text))
+                        {
+                            MessageBox.Show("Customer name is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                        if (!Validator.ValidateAddress(EditCustomerAddress1TextBox.Text, EditCustomerAddress2TextBox.Text, EditCustomerPostalCodeTextBox.Text, EditCustomerCityTextBox.Text, EditCustomerCountryTextBox.Text))
+                        {
+                            MessageBox.Show("All address fields must be filled. Use 'N/A' if needed.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                        if (!Validator.ValidatePhoneNumber(EditCustomerPhoneNumberTextBox.Text))
+                        {
+                            MessageBox.Show("Phone number can only contain digits and dashes.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
+                        // Process Country
+                        var countryName = EditCustomerCountryTextBox.Text.Trim();
+                        int countryId = DBQueries.GetCountryId(countryName);
+                        if (countryId == 0)
+                        {
+                            countryId = DBInsert.InsertCountry(countryName);
+                        }
+
+                        // Process City
+                        var cityName = EditCustomerCityTextBox.Text.Trim();
+                        int cityId = DBQueries.GetCityId(cityName);
+                        if (cityId == 0)
+                        {
+                            cityId = DBInsert.InsertCity(countryId, cityName);
+                        }
+
+                        // Process Address
+                        var address1 = EditCustomerAddress1TextBox.Text.Trim();
+                        var address2 = EditCustomerAddress2TextBox.Text.Trim();
+                        var postalCode = EditCustomerPostalCodeTextBox.Text.Trim();
+                        var phoneNumber = EditCustomerPhoneNumberTextBox.Text.Trim();
 
 
+                        var addressId = DBQueries.GetAddressId(address1, address2, cityId, postalCode, phoneNumber);
+                        if (addressId == 0)
+                        {
+                            addressId = DBInsert.InsertAddress(cityId, address1, address2, postalCode, phoneNumber);
+                        }
+
+                        // Process Customer
+                        var customerName = EditCustomerNameTextBox.Text.Trim();
+                        var active = EditCustomerActiveButton.Checked ? 1 : 0;
+                        //DBInsert.InsertCustomer(addressId, customerName, active);
+                        DBUpdate.UpdateCustomer(CustomerForm.SelectedCustomer, customerName, addressId, active, transaction);
+
+                        // Commit transaction
+                        transaction.Commit();
+                        MessageBox.Show("Customer has been saved successfully.");
+                        this.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        MessageBox.Show($"An error occurred: {ex.Message}");
+                    }
+                }
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show($"A critical error occurred: {ex.Message}");
             }
         }
     }
