@@ -134,11 +134,18 @@
       <DependentUpon>CustomerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Database\DBConnection.cs" />
+    <Compile Include="DBClasses\DBInsert.cs" />
     <Compile Include="DBClasses\TimeTracking.cs" />
     <Compile Include="DBClasses\User.cs" />
     <Compile Include="DBClasses\UserQueries.cs" />
     <Compile Include="DBClasses\UserUpdate.cs" />
     <Compile Include="DBClasses\Validator.cs" />
+    <Compile Include="EditCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditCustomer.Designer.cs">
+      <DependentUpon>EditCustomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="LogInForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +173,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CustomerForm.resx">
       <DependentUpon>CustomerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditCustomer.resx">
+      <DependentUpon>EditCustomer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LogInForm.de.resx">
       <DependentUpon>LogInForm.cs</DependentUpon>

@@ -39,9 +39,17 @@
             // 
             // CustomerFormCustomersDataGridView
             // 
+            this.CustomerFormCustomersDataGridView.AllowUserToAddRows = false;
+            this.CustomerFormCustomersDataGridView.AllowUserToDeleteRows = false;
+            this.CustomerFormCustomersDataGridView.AllowUserToOrderColumns = true;
+            this.CustomerFormCustomersDataGridView.AllowUserToResizeColumns = false;
+            this.CustomerFormCustomersDataGridView.AllowUserToResizeRows = false;
             this.CustomerFormCustomersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.CustomerFormCustomersDataGridView.Location = new System.Drawing.Point(38, 47);
+            this.CustomerFormCustomersDataGridView.MultiSelect = false;
             this.CustomerFormCustomersDataGridView.Name = "CustomerFormCustomersDataGridView";
+            this.CustomerFormCustomersDataGridView.ReadOnly = true;
+            this.CustomerFormCustomersDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.CustomerFormCustomersDataGridView.Size = new System.Drawing.Size(690, 309);
             this.CustomerFormCustomersDataGridView.TabIndex = 0;
             // 
@@ -62,6 +70,7 @@
             this.CustomerFormEditButton.TabIndex = 3;
             this.CustomerFormEditButton.Text = "Edit";
             this.CustomerFormEditButton.UseVisualStyleBackColor = true;
+            this.CustomerFormEditButton.Click += new System.EventHandler(this.CustomerFormEditButton_Click);
             // 
             // CustomerFormAppointmentsButton
             // 

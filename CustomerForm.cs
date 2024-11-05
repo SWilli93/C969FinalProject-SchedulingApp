@@ -14,6 +14,7 @@ namespace ScottWilliamsC969FinalProject
 {
     public partial class CustomerForm : Form
     {
+        public static int SelectedCustomer;
         public CustomerForm()
         {
             InitializeComponent();
@@ -71,6 +72,19 @@ namespace ScottWilliamsC969FinalProject
                 {
                     MessageBox.Show("An error occurred while loading customer data: " + ex.Message);
                 }
+        }
+
+        private void CustomerFormEditButton_Click(object sender, EventArgs e)
+        {
+            if (CustomerFormCustomersDataGridView.CurrentRow != null)
+            {
+                DataGridViewRow selectedRow = CustomerFormCustomersDataGridView.CurrentRow;
+
+                SelectedCustomer = Convert.ToInt32(selectedRow.Cells["customerId"].Value);
+            }
+            
+            EditCustomer editCustomerForm = new EditCustomer();
+            editCustomerForm.Show();
         }
     }
 }
