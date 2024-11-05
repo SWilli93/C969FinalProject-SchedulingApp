@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.EditCustomerNotActiveButton = new System.Windows.Forms.RadioButton();
-            this.EditCustomerActiveButton = new System.Windows.Forms.RadioButton();
             this.EditCustomerCountryTextBox = new System.Windows.Forms.TextBox();
             this.EditCustomerPostalCodeTextBox = new System.Windows.Forms.TextBox();
             this.EditCustomerCityTextBox = new System.Windows.Forms.TextBox();
@@ -44,35 +42,11 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.EditCustomerFormCancelButton = new System.Windows.Forms.Button();
+            this.EditCustomerActiveCheckBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
-            // 
-            // EditCustomerNotActiveButton
-            // 
-            this.EditCustomerNotActiveButton.AutoCheck = false;
-            this.EditCustomerNotActiveButton.AutoSize = true;
-            this.EditCustomerNotActiveButton.Location = new System.Drawing.Point(226, 304);
-            this.EditCustomerNotActiveButton.Name = "EditCustomerNotActiveButton";
-            this.EditCustomerNotActiveButton.Size = new System.Drawing.Size(75, 17);
-            this.EditCustomerNotActiveButton.TabIndex = 37;
-            this.EditCustomerNotActiveButton.TabStop = true;
-            this.EditCustomerNotActiveButton.Text = "Not Active";
-            this.EditCustomerNotActiveButton.UseVisualStyleBackColor = true;
-            // 
-            // EditCustomerActiveButton
-            // 
-            this.EditCustomerActiveButton.AutoSize = true;
-            this.EditCustomerActiveButton.Checked = true;
-            this.EditCustomerActiveButton.Location = new System.Drawing.Point(150, 304);
-            this.EditCustomerActiveButton.Name = "EditCustomerActiveButton";
-            this.EditCustomerActiveButton.Size = new System.Drawing.Size(55, 17);
-            this.EditCustomerActiveButton.TabIndex = 36;
-            this.EditCustomerActiveButton.TabStop = true;
-            this.EditCustomerActiveButton.Text = "Active";
-            this.EditCustomerActiveButton.UseVisualStyleBackColor = true;
             // 
             // EditCustomerCountryTextBox
             // 
@@ -187,15 +161,6 @@
             this.label4.TabIndex = 22;
             this.label4.Text = "City";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(31, 308);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(37, 13);
-            this.label3.TabIndex = 21;
-            this.label3.Text = "Active";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -224,14 +189,25 @@
             this.EditCustomerFormCancelButton.UseVisualStyleBackColor = true;
             this.EditCustomerFormCancelButton.Click += new System.EventHandler(this.EditCustomerFormCancelButton_Click);
             // 
+            // EditCustomerActiveCheckBox
+            // 
+            this.EditCustomerActiveCheckBox.AutoSize = true;
+            this.EditCustomerActiveCheckBox.Checked = true;
+            this.EditCustomerActiveCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.EditCustomerActiveCheckBox.Location = new System.Drawing.Point(141, 309);
+            this.EditCustomerActiveCheckBox.Name = "EditCustomerActiveCheckBox";
+            this.EditCustomerActiveCheckBox.Size = new System.Drawing.Size(56, 17);
+            this.EditCustomerActiveCheckBox.TabIndex = 39;
+            this.EditCustomerActiveCheckBox.Text = "Active";
+            this.EditCustomerActiveCheckBox.UseVisualStyleBackColor = true;
+            // 
             // EditCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(368, 392);
+            this.Controls.Add(this.EditCustomerActiveCheckBox);
             this.Controls.Add(this.EditCustomerFormCancelButton);
-            this.Controls.Add(this.EditCustomerNotActiveButton);
-            this.Controls.Add(this.EditCustomerActiveButton);
             this.Controls.Add(this.EditCustomerCountryTextBox);
             this.Controls.Add(this.EditCustomerPostalCodeTextBox);
             this.Controls.Add(this.EditCustomerCityTextBox);
@@ -246,7 +222,6 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "EditCustomer";
@@ -257,9 +232,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.RadioButton EditCustomerNotActiveButton;
-        private System.Windows.Forms.RadioButton EditCustomerActiveButton;
         private System.Windows.Forms.TextBox EditCustomerCountryTextBox;
         private System.Windows.Forms.TextBox EditCustomerPostalCodeTextBox;
         private System.Windows.Forms.TextBox EditCustomerCityTextBox;
@@ -274,9 +246,9 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button EditCustomerFormCancelButton;
+        private System.Windows.Forms.CheckBox EditCustomerActiveCheckBox;
     }
 }

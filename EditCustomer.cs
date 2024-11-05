@@ -59,6 +59,14 @@ namespace ScottWilliamsC969FinalProject
                         EditCustomerCityTextBox.Text = reader["city"].ToString();
                         EditCustomerPostalCodeTextBox.Text = reader["postalCode"].ToString();
                         EditCustomerCountryTextBox.Text = reader["country"].ToString();
+                        if (Convert.ToInt32(reader["active"]) == 1)
+                        {
+                            EditCustomerActiveCheckBox.Checked = true;
+                        }
+                        else
+                        {
+                            EditCustomerActiveCheckBox.Checked = false;
+                        }
                     }
                     else
                     {
@@ -129,7 +137,7 @@ namespace ScottWilliamsC969FinalProject
 
                         // Process Customer
                         var customerName = EditCustomerNameTextBox.Text.Trim();
-                        var active = EditCustomerActiveButton.Checked ? 1 : 0;
+                        var active = EditCustomerActiveCheckBox.Checked ? 1 : 0;
                         //DBInsert.InsertCustomer(addressId, customerName, active);
                         DBUpdate.UpdateCustomer(CustomerForm.SelectedCustomer, customerName, addressId, active, transaction);
 

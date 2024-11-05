@@ -30,7 +30,6 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -45,8 +44,7 @@
             this.AddCustomerCityTextBox = new System.Windows.Forms.TextBox();
             this.AddCustomerPostalCodeTextBox = new System.Windows.Forms.TextBox();
             this.AddCustomerCountryTextBox = new System.Windows.Forms.TextBox();
-            this.AddCustomerActiveButton = new System.Windows.Forms.RadioButton();
-            this.AddCustomerNotActiveButton = new System.Windows.Forms.RadioButton();
+            this.AddCustomerActiveCheckBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -66,15 +64,6 @@
             this.label2.Size = new System.Drawing.Size(76, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "New Customer";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(32, 290);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(37, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Active";
             // 
             // label4
             // 
@@ -189,37 +178,24 @@
             this.AddCustomerCountryTextBox.Size = new System.Drawing.Size(192, 20);
             this.AddCustomerCountryTextBox.TabIndex = 16;
             // 
-            // AddCustomerActiveButton
+            // AddCustomerActiveCheckBox
             // 
-            this.AddCustomerActiveButton.AutoSize = true;
-            this.AddCustomerActiveButton.Checked = true;
-            this.AddCustomerActiveButton.Location = new System.Drawing.Point(151, 286);
-            this.AddCustomerActiveButton.Name = "AddCustomerActiveButton";
-            this.AddCustomerActiveButton.Size = new System.Drawing.Size(55, 17);
-            this.AddCustomerActiveButton.TabIndex = 17;
-            this.AddCustomerActiveButton.TabStop = true;
-            this.AddCustomerActiveButton.Text = "Active";
-            this.AddCustomerActiveButton.UseVisualStyleBackColor = true;
-            // 
-            // AddCustomerNotActiveButton
-            // 
-            this.AddCustomerNotActiveButton.AutoCheck = false;
-            this.AddCustomerNotActiveButton.AutoSize = true;
-            this.AddCustomerNotActiveButton.Location = new System.Drawing.Point(227, 286);
-            this.AddCustomerNotActiveButton.Name = "AddCustomerNotActiveButton";
-            this.AddCustomerNotActiveButton.Size = new System.Drawing.Size(75, 17);
-            this.AddCustomerNotActiveButton.TabIndex = 18;
-            this.AddCustomerNotActiveButton.TabStop = true;
-            this.AddCustomerNotActiveButton.Text = "Not Active";
-            this.AddCustomerNotActiveButton.UseVisualStyleBackColor = true;
+            this.AddCustomerActiveCheckBox.AutoSize = true;
+            this.AddCustomerActiveCheckBox.Checked = true;
+            this.AddCustomerActiveCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.AddCustomerActiveCheckBox.Location = new System.Drawing.Point(142, 287);
+            this.AddCustomerActiveCheckBox.Name = "AddCustomerActiveCheckBox";
+            this.AddCustomerActiveCheckBox.Size = new System.Drawing.Size(56, 17);
+            this.AddCustomerActiveCheckBox.TabIndex = 19;
+            this.AddCustomerActiveCheckBox.Text = "Active";
+            this.AddCustomerActiveCheckBox.UseVisualStyleBackColor = true;
             // 
             // AddCustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(366, 388);
-            this.Controls.Add(this.AddCustomerNotActiveButton);
-            this.Controls.Add(this.AddCustomerActiveButton);
+            this.Controls.Add(this.AddCustomerActiveCheckBox);
             this.Controls.Add(this.AddCustomerCountryTextBox);
             this.Controls.Add(this.AddCustomerPostalCodeTextBox);
             this.Controls.Add(this.AddCustomerCityTextBox);
@@ -234,7 +210,6 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "AddCustomerForm";
@@ -248,7 +223,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
@@ -263,7 +237,6 @@
         private System.Windows.Forms.TextBox AddCustomerCityTextBox;
         private System.Windows.Forms.TextBox AddCustomerPostalCodeTextBox;
         private System.Windows.Forms.TextBox AddCustomerCountryTextBox;
-        private System.Windows.Forms.RadioButton AddCustomerActiveButton;
-        private System.Windows.Forms.RadioButton AddCustomerNotActiveButton;
+        private System.Windows.Forms.CheckBox AddCustomerActiveCheckBox;
     }
 }

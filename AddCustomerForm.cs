@@ -77,7 +77,7 @@ namespace ScottWilliamsC969FinalProject
 
                     // Process Customer
                     var customerName = AddCustomerNameTextBox.Text.Trim();
-                    var active = AddCustomerActiveButton.Checked? 1 : 0;
+                    var active = AddCustomerActiveCheckBox.Checked? 1 : 0;
                     DBInsert.InsertCustomer(addressId, customerName, active);
 
                     // Commit transaction
