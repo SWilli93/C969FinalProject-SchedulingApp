@@ -2,6 +2,7 @@
 using ScottWilliamsC969FinalProject.Database;
 using ScottWilliamsC969FinalProject.DBClasses;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,7 +17,7 @@ namespace ScottWilliamsC969FinalProject
 {
     public partial class EditCustomer : Form
     {
-        
+        private int addressId;
         public EditCustomer()
         {
             InitializeComponent();
@@ -24,6 +25,7 @@ namespace ScottWilliamsC969FinalProject
                     SELECT 
                         customer.customerId, 
                         customer.customerName,
+                        customer.addressId,
                         address.phone,
                         address.address, 
                         address.address2, 
@@ -53,6 +55,7 @@ namespace ScottWilliamsC969FinalProject
                     {
                         // Assuming you have TextBox controls on your form
                         EditCustomerNameTextBox.Text = reader["CustomerName"].ToString();
+                        addressId = Convert.ToInt32(reader["addressId"]);
                         EditCustomerPhoneNumberTextBox.Text = reader["phone"].ToString();
                         EditCustomerAddress1TextBox.Text = reader["address"].ToString();
                         EditCustomerAddress2TextBox.Text = reader["address2"].ToString();
@@ -128,12 +131,7 @@ namespace ScottWilliamsC969FinalProject
                         var postalCode = EditCustomerPostalCodeTextBox.Text.Trim();
                         var phoneNumber = EditCustomerPhoneNumberTextBox.Text.Trim();
 
-
-                        var addressId = DBQueries.GetAddressId(address1, address2, cityId, postalCode, phoneNumber);
-                        if (addressId == 0)
-                        {
-                            addressId = DBInsert.InsertAddress(cityId, address1, address2, postalCode, phoneNumber);
-                        }
+                        DBUpdate.UpdateAddress(addressId, address1, address2, cityId, postalCode, phoneNumber, transaction);
 
                         // Process Customer
                         var customerName = EditCustomerNameTextBox.Text.Trim();
