@@ -34,6 +34,7 @@
             this.CustomerFormAppointmentsButton = new System.Windows.Forms.Button();
             this.CustomerFormAddButton = new System.Windows.Forms.Button();
             this.CustomerFormDeleteButton = new System.Windows.Forms.Button();
+            this.CustomerFormRefreshButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.CustomerFormCustomersDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,6 +53,7 @@
             this.CustomerFormCustomersDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.CustomerFormCustomersDataGridView.Size = new System.Drawing.Size(690, 309);
             this.CustomerFormCustomersDataGridView.TabIndex = 0;
+            this.CustomerFormCustomersDataGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.CustomerFormCustomersDataGridView_DataBindingComplete);
             // 
             // listofCustomersLabel
             // 
@@ -74,7 +76,7 @@
             // 
             // CustomerFormAppointmentsButton
             // 
-            this.CustomerFormAppointmentsButton.Location = new System.Drawing.Point(647, 415);
+            this.CustomerFormAppointmentsButton.Location = new System.Drawing.Point(665, 415);
             this.CustomerFormAppointmentsButton.Name = "CustomerFormAppointmentsButton";
             this.CustomerFormAppointmentsButton.Size = new System.Drawing.Size(141, 23);
             this.CustomerFormAppointmentsButton.TabIndex = 5;
@@ -99,12 +101,24 @@
             this.CustomerFormDeleteButton.TabIndex = 8;
             this.CustomerFormDeleteButton.Text = "Delete";
             this.CustomerFormDeleteButton.UseVisualStyleBackColor = true;
+            this.CustomerFormDeleteButton.Click += new System.EventHandler(this.CustomerFormDeleteButton_Click);
+            // 
+            // CustomerFormRefreshButton
+            // 
+            this.CustomerFormRefreshButton.Location = new System.Drawing.Point(734, 47);
+            this.CustomerFormRefreshButton.Name = "CustomerFormRefreshButton";
+            this.CustomerFormRefreshButton.Size = new System.Drawing.Size(72, 23);
+            this.CustomerFormRefreshButton.TabIndex = 9;
+            this.CustomerFormRefreshButton.Text = "Refresh";
+            this.CustomerFormRefreshButton.UseVisualStyleBackColor = true;
+            this.CustomerFormRefreshButton.Click += new System.EventHandler(this.CustomerFormRefreshButton_Click);
             // 
             // CustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(818, 450);
+            this.Controls.Add(this.CustomerFormRefreshButton);
             this.Controls.Add(this.CustomerFormDeleteButton);
             this.Controls.Add(this.CustomerFormAddButton);
             this.Controls.Add(this.CustomerFormAppointmentsButton);
@@ -127,5 +141,6 @@
         private System.Windows.Forms.Button CustomerFormAppointmentsButton;
         private System.Windows.Forms.Button CustomerFormAddButton;
         private System.Windows.Forms.Button CustomerFormDeleteButton;
+        private System.Windows.Forms.Button CustomerFormRefreshButton;
     }
 }

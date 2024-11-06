@@ -17,9 +17,12 @@ namespace ScottWilliamsC969FinalProject
 {
     public partial class EditCustomer : Form
     {
+        private int SelectedCustomer;
         private int addressId;
-        public EditCustomer()
+
+        public EditCustomer(int selectedCustomer)
         {
+            SelectedCustomer = selectedCustomer;
             InitializeComponent();
             string query = @"
                     SELECT 
@@ -47,7 +50,7 @@ namespace ScottWilliamsC969FinalProject
             using (MySqlCommand cmd = new MySqlCommand(query, DBConnection.Conn))
             {
                 // Use parameterized query to prevent SQL injection
-                cmd.Parameters.AddWithValue("@CustomerId", CustomerForm.SelectedCustomer);
+                cmd.Parameters.AddWithValue("@CustomerId", SelectedCustomer);
 
                 using (MySqlDataReader reader = cmd.ExecuteReader())
                 {
@@ -137,7 +140,7 @@ namespace ScottWilliamsC969FinalProject
                         var customerName = EditCustomerNameTextBox.Text.Trim();
                         var active = EditCustomerActiveCheckBox.Checked ? 1 : 0;
                         //DBInsert.InsertCustomer(addressId, customerName, active);
-                        DBUpdate.UpdateCustomer(CustomerForm.SelectedCustomer, customerName, addressId, active, transaction);
+                        DBUpdate.UpdateCustomer(SelectedCustomer, customerName, addressId, active, transaction);
 
                         // Commit transaction
                         transaction.Commit();
