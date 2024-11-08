@@ -19,6 +19,7 @@ namespace ScottWilliamsC969FinalProject
         {
             InitializeComponent();
             var user = DBClasses.User.CurrentUser;
+            LoadAppointmentData();
         }
 
         private void weeklyDayAppointments_Click(object sender, EventArgs e)
@@ -43,6 +44,63 @@ namespace ScottWilliamsC969FinalProject
         {
             CustomerForm customerForm = new CustomerForm();
             customerForm.Show();
+        }
+
+        public void LoadAppointmentData()
+        {
+            try
+            {
+                string query = @"
+                    SELECT 
+                        appointment.appointmentId, 
+                        customer.customerName,
+                        appointment.title,
+                        appointment.description,
+                        appointment.location,
+                        appointment.contact,
+                        appointment.type,
+                        appointment.url,
+                        appointment.start,
+                        appointment.end
+                    FROM 
+                        appointment
+                    JOIN 
+                        customer ON customer.customerId = appointment.customerId";
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, DBConnection.Conn))
+                {
+
+                    DataTable appointmentTable = new DataTable();
+                    adapter.Fill(appointmentTable);
+
+
+                    AppointmentFormAppointmentsDataGridView.DataSource = appointmentTable;
+                    AppointmentFormAppointmentsDataGridView.ClearSelection();
+                    AppointmentFormAppointmentsDataGridView.CurrentCell = null;
+                }
+
+
+
+                AppointmentFormAppointmentsDataGridView.Columns["appointmentId"].HeaderText = "Customer ID";
+                AppointmentFormAppointmentsDataGridView.Columns["customerName"].HeaderText = "Customer Name";
+                AppointmentFormAppointmentsDataGridView.Columns["title"].HeaderText = "Title";
+                AppointmentFormAppointmentsDataGridView.Columns["description"].HeaderText = "Description";
+                AppointmentFormAppointmentsDataGridView.Columns["location"].HeaderText = "Location";
+                AppointmentFormAppointmentsDataGridView.Columns["contact"].HeaderText = "Contact";
+                AppointmentFormAppointmentsDataGridView.Columns["type"].HeaderText = "Type";
+                AppointmentFormAppointmentsDataGridView.Columns["url"].HeaderText = "URL";
+                AppointmentFormAppointmentsDataGridView.Columns["start"].HeaderText = "Start Time";
+                AppointmentFormAppointmentsDataGridView.Columns["end"].HeaderText = "End Time";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while loading customer data: " + ex.Message);
+            }
+        }
+
+        private void AppointmentFormAddButton_Click(object sender, EventArgs e)
+        {
+            AddAppointmentForm addAppointmentForm = new AddAppointmentForm();
+            addAppointmentForm.Show();
         }
     }
 }

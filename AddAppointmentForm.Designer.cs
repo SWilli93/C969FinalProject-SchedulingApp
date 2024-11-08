@@ -46,8 +46,8 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.AppointmentFormDateTimePickerStartTime = new System.Windows.Forms.DateTimePicker();
+            this.AppointmentFormdateTimePickerEndTime = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -201,29 +201,29 @@
             this.label9.TabIndex = 17;
             this.label9.Text = "Start Time";
             // 
-            // dateTimePicker1
+            // AppointmentFormDateTimePickerStartTime
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker1.Location = new System.Drawing.Point(139, 275);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(280, 20);
-            this.dateTimePicker1.TabIndex = 18;
+            this.AppointmentFormDateTimePickerStartTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.AppointmentFormDateTimePickerStartTime.Location = new System.Drawing.Point(139, 275);
+            this.AppointmentFormDateTimePickerStartTime.Name = "AppointmentFormDateTimePickerStartTime";
+            this.AppointmentFormDateTimePickerStartTime.Size = new System.Drawing.Size(280, 20);
+            this.AppointmentFormDateTimePickerStartTime.TabIndex = 18;
             // 
-            // dateTimePicker2
+            // AppointmentFormdateTimePickerEndTime
             // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker2.Location = new System.Drawing.Point(139, 329);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(280, 20);
-            this.dateTimePicker2.TabIndex = 19;
+            this.AppointmentFormdateTimePickerEndTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.AppointmentFormdateTimePickerEndTime.Location = new System.Drawing.Point(139, 329);
+            this.AppointmentFormdateTimePickerEndTime.Name = "AppointmentFormdateTimePickerEndTime";
+            this.AppointmentFormdateTimePickerEndTime.Size = new System.Drawing.Size(280, 20);
+            this.AppointmentFormdateTimePickerEndTime.TabIndex = 19;
             // 
             // AddAppointmentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1073, 630);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.AppointmentFormdateTimePickerEndTime);
+            this.Controls.Add(this.AppointmentFormDateTimePickerStartTime);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.button2);
@@ -270,7 +270,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker AppointmentFormDateTimePickerStartTime;
+        private System.Windows.Forms.DateTimePicker AppointmentFormdateTimePickerEndTime;
     }
 }

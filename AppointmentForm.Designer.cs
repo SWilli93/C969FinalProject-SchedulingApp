@@ -66,6 +66,7 @@
             this.AppointmentFormAddButton.TabIndex = 4;
             this.AppointmentFormAddButton.Text = "Add";
             this.AppointmentFormAddButton.UseVisualStyleBackColor = true;
+            this.AppointmentFormAddButton.Click += new System.EventHandler(this.AppointmentFormAddButton_Click);
             // 
             // AppointmentFormEditButton
             // 
