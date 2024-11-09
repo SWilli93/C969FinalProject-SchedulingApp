@@ -14,11 +14,10 @@ namespace ScottWilliamsC969FinalProject
 {
     public partial class CustomerForm : Form
     {
-        private int SelectedCustomer;
         public CustomerForm()
         {
             InitializeComponent();
-            LoadCustomerData();
+            LoadCustomerData(CustomerFormCustomersDataGridView);
         }
 
         private void CustomerFormAddButton_Click(object sender, EventArgs e)
@@ -27,7 +26,7 @@ namespace ScottWilliamsC969FinalProject
             addCustomerForm.Show();
         }
 
-        public void LoadCustomerData()
+        public static void LoadCustomerData(DataGridView dataGrid)
         {
                 try
                 {
@@ -58,21 +57,21 @@ namespace ScottWilliamsC969FinalProject
                     adapter.Fill(customerTable);
 
 
-                    CustomerFormCustomersDataGridView.DataSource = customerTable;
-                    CustomerFormCustomersDataGridView.ClearSelection();
-                    CustomerFormCustomersDataGridView.CurrentCell = null;
+                    dataGrid.DataSource = customerTable;
+                    dataGrid.ClearSelection();
+                    dataGrid.CurrentCell = null;
                 }
                     
 
 
-                    CustomerFormCustomersDataGridView.Columns["customerId"].HeaderText = "Customer ID";
-                    CustomerFormCustomersDataGridView.Columns["customerName"].HeaderText = "Customer Name";
-                    CustomerFormCustomersDataGridView.Columns["Phone"].HeaderText = "Phone Number";
-                    CustomerFormCustomersDataGridView.Columns["address"].HeaderText = "Address";
-                    CustomerFormCustomersDataGridView.Columns["city"].HeaderText = "City";
-                    CustomerFormCustomersDataGridView.Columns["country"].HeaderText = "Country";
-                    CustomerFormCustomersDataGridView.Columns["postalCode"].HeaderText = "Postal Code";
-                    CustomerFormCustomersDataGridView.Columns["active"].HeaderText = "Active";
+                    dataGrid.Columns["customerId"].HeaderText = "Customer ID";
+                    dataGrid.Columns["customerName"].HeaderText = "Customer Name";
+                    dataGrid.Columns["Phone"].HeaderText = "Phone Number";
+                    dataGrid.Columns["address"].HeaderText = "Address";
+                    dataGrid.Columns["city"].HeaderText = "City";
+                    dataGrid.Columns["country"].HeaderText = "Country";
+                    dataGrid.Columns["postalCode"].HeaderText = "Postal Code";
+                    dataGrid.Columns["active"].HeaderText = "Active";
             }
                 catch (Exception ex)
                 {
@@ -82,14 +81,14 @@ namespace ScottWilliamsC969FinalProject
 
         private void CustomerFormEditButton_Click(object sender, EventArgs e)
         {
-            SelectedCustomer = SelectCustomer();
+            int SelectedCustomer = SelectCustomer(CustomerFormCustomersDataGridView);
             EditCustomer editCustomerForm = new EditCustomer(SelectedCustomer);
             editCustomerForm.Show();
         }
 
         private void CustomerFormDeleteButton_Click(object sender, EventArgs e)
         {
-            SelectedCustomer = SelectCustomer();
+            int SelectedCustomer = SelectCustomer(CustomerFormCustomersDataGridView);
             if (SelectedCustomer > 0)
             {
                 using (var transaction = DBConnection.Conn.BeginTransaction())
@@ -123,7 +122,7 @@ namespace ScottWilliamsC969FinalProject
                         transaction.Commit();
 
                         MessageBox.Show("Customer and associated address deleted successfully.");
-                        LoadCustomerData();
+                        LoadCustomerData(CustomerFormCustomersDataGridView);
                     }
                     catch (Exception ex)
                     {
@@ -144,11 +143,12 @@ namespace ScottWilliamsC969FinalProject
             CustomerFormCustomersDataGridView.CurrentCell = null;
         }
 
-        private int SelectCustomer()
+        public static int SelectCustomer(DataGridView datagrid)
         {
-            if (CustomerFormCustomersDataGridView.CurrentRow != null)
+            int SelectedCustomer = 0;
+            if (datagrid.CurrentRow != null)
             {
-                DataGridViewRow selectedRow = CustomerFormCustomersDataGridView.CurrentRow;
+                DataGridViewRow selectedRow = datagrid.CurrentRow;
 
                 SelectedCustomer = Convert.ToInt32(selectedRow.Cells["customerId"].Value);
             }
@@ -158,7 +158,7 @@ namespace ScottWilliamsC969FinalProject
 
         private void CustomerFormRefreshButton_Click(object sender, EventArgs e)
         {
-            LoadCustomerData();
+            LoadCustomerData(CustomerFormCustomersDataGridView);
             CustomerFormCustomersDataGridView.ClearSelection();
             CustomerFormCustomersDataGridView.CurrentCell = null;
         }

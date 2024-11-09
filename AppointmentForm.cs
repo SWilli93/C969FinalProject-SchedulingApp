@@ -77,16 +77,24 @@ namespace ScottWilliamsC969FinalProject
                         DataTable appointmentTable = new DataTable();
                         adapter.Fill(appointmentTable);
 
+                        foreach (DataRow row in appointmentTable.Rows)
+                        {
+                            if (DateTime.TryParse(row["start"].ToString(), out DateTime startTimeUtc))
+                            {
+                                row["start"] = ConvertToUserLocalTime(startTimeUtc);
+                            }
+                            if (DateTime.TryParse(row["end"].ToString(), out DateTime endTimeUtc))
+                            {
+                                row["end"] = ConvertToUserLocalTime(endTimeUtc);
+                            }
+                        }
 
                         AppointmentFormAppointmentsDataGridView.DataSource = appointmentTable;
                         AppointmentFormAppointmentsDataGridView.ClearSelection();
                         AppointmentFormAppointmentsDataGridView.CurrentCell = null;
                     }
                 }
-
-
-
-                AppointmentFormAppointmentsDataGridView.Columns["appointmentId"].HeaderText = "Customer ID";
+                AppointmentFormAppointmentsDataGridView.Columns["appointmentId"].HeaderText = "Appointment ID";
                 AppointmentFormAppointmentsDataGridView.Columns["customerName"].HeaderText = "Customer Name";
                 AppointmentFormAppointmentsDataGridView.Columns["title"].HeaderText = "Title";
                 AppointmentFormAppointmentsDataGridView.Columns["description"].HeaderText = "Description";
@@ -103,10 +111,23 @@ namespace ScottWilliamsC969FinalProject
             }
         }
 
+        private DateTime ConvertToUserLocalTime(DateTime utcDateTime)
+        {
+            TimeZoneInfo userTimeZone = TimeZoneInfo.Local;
+            return TimeZoneInfo.ConvertTimeFromUtc(utcDateTime, userTimeZone);
+        }
+
         private void AppointmentFormAddButton_Click(object sender, EventArgs e)
         {
             AddAppointmentForm addAppointmentForm = new AddAppointmentForm();
             addAppointmentForm.Show();
+        }
+
+        private void AppointmentFormRefreshButton_Click(object sender, EventArgs e)
+        {
+            LoadAppointmentData();
+            AppointmentFormAppointmentsDataGridView.ClearSelection();
+            AppointmentFormAppointmentsDataGridView.CurrentCell = null;
         }
     }
 }

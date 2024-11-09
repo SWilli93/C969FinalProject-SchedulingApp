@@ -34,7 +34,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
             this.AddAppointmentFormTitleTextBox = new System.Windows.Forms.TextBox();
             this.AddAppointmentFormContactTextBox = new System.Windows.Forms.TextBox();
@@ -48,13 +47,14 @@
             this.label9 = new System.Windows.Forms.Label();
             this.AppointmentFormDateTimePickerStartTime = new System.Windows.Forms.DateTimePicker();
             this.AppointmentFormDateTimePickerEndTime = new System.Windows.Forms.DateTimePicker();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.AddAppointmentFormCustomersDataGridView = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.AddAppointmentFormCustomersDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(78, 44);
+            this.label1.Location = new System.Drawing.Point(78, 65);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(27, 13);
             this.label1.TabIndex = 0;
@@ -63,7 +63,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(61, 93);
+            this.label2.Location = new System.Drawing.Point(63, 107);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 1;
@@ -72,7 +72,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(57, 131);
+            this.label3.Location = new System.Drawing.Point(57, 150);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 13);
             this.label3.TabIndex = 2;
@@ -81,7 +81,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(74, 174);
+            this.label4.Location = new System.Drawing.Point(74, 192);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(31, 13);
             this.label4.TabIndex = 3;
@@ -105,18 +105,10 @@
             this.label6.TabIndex = 5;
             this.label6.Text = "Description";
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(620, 62);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(413, 364);
-            this.dataGridView1.TabIndex = 6;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(617, 35);
+            this.label7.Location = new System.Drawing.Point(480, 32);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(187, 13);
             this.label7.TabIndex = 7;
@@ -124,28 +116,28 @@
             // 
             // AddAppointmentFormTitleTextBox
             // 
-            this.AddAppointmentFormTitleTextBox.Location = new System.Drawing.Point(139, 41);
+            this.AddAppointmentFormTitleTextBox.Location = new System.Drawing.Point(139, 62);
             this.AddAppointmentFormTitleTextBox.Name = "AddAppointmentFormTitleTextBox";
             this.AddAppointmentFormTitleTextBox.Size = new System.Drawing.Size(280, 20);
             this.AddAppointmentFormTitleTextBox.TabIndex = 8;
             // 
             // AddAppointmentFormContactTextBox
             // 
-            this.AddAppointmentFormContactTextBox.Location = new System.Drawing.Point(139, 90);
+            this.AddAppointmentFormContactTextBox.Location = new System.Drawing.Point(141, 104);
             this.AddAppointmentFormContactTextBox.Name = "AddAppointmentFormContactTextBox";
             this.AddAppointmentFormContactTextBox.Size = new System.Drawing.Size(280, 20);
             this.AddAppointmentFormContactTextBox.TabIndex = 9;
             // 
             // AddAppointmentFormLocationTextBox
             // 
-            this.AddAppointmentFormLocationTextBox.Location = new System.Drawing.Point(139, 128);
+            this.AddAppointmentFormLocationTextBox.Location = new System.Drawing.Point(139, 147);
             this.AddAppointmentFormLocationTextBox.Name = "AddAppointmentFormLocationTextBox";
             this.AddAppointmentFormLocationTextBox.Size = new System.Drawing.Size(280, 20);
             this.AddAppointmentFormLocationTextBox.TabIndex = 10;
             // 
             // AddAppointmentFormTypeTextBox
             // 
-            this.AddAppointmentFormTypeTextBox.Location = new System.Drawing.Point(139, 167);
+            this.AddAppointmentFormTypeTextBox.Location = new System.Drawing.Point(139, 185);
             this.AddAppointmentFormTypeTextBox.Name = "AddAppointmentFormTypeTextBox";
             this.AddAppointmentFormTypeTextBox.Size = new System.Drawing.Size(280, 20);
             this.AddAppointmentFormTypeTextBox.TabIndex = 11;
@@ -218,11 +210,28 @@
             this.AppointmentFormDateTimePickerEndTime.Size = new System.Drawing.Size(280, 20);
             this.AppointmentFormDateTimePickerEndTime.TabIndex = 19;
             // 
+            // AddAppointmentFormCustomersDataGridView
+            // 
+            this.AddAppointmentFormCustomersDataGridView.AllowUserToAddRows = false;
+            this.AddAppointmentFormCustomersDataGridView.AllowUserToDeleteRows = false;
+            this.AddAppointmentFormCustomersDataGridView.AllowUserToOrderColumns = true;
+            this.AddAppointmentFormCustomersDataGridView.AllowUserToResizeColumns = false;
+            this.AddAppointmentFormCustomersDataGridView.AllowUserToResizeRows = false;
+            this.AddAppointmentFormCustomersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.AddAppointmentFormCustomersDataGridView.Location = new System.Drawing.Point(483, 65);
+            this.AddAppointmentFormCustomersDataGridView.MultiSelect = false;
+            this.AddAppointmentFormCustomersDataGridView.Name = "AddAppointmentFormCustomersDataGridView";
+            this.AddAppointmentFormCustomersDataGridView.ReadOnly = true;
+            this.AddAppointmentFormCustomersDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.AddAppointmentFormCustomersDataGridView.Size = new System.Drawing.Size(550, 465);
+            this.AddAppointmentFormCustomersDataGridView.TabIndex = 20;
+            // 
             // AddAppointmentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1073, 630);
+            this.Controls.Add(this.AddAppointmentFormCustomersDataGridView);
             this.Controls.Add(this.AppointmentFormDateTimePickerEndTime);
             this.Controls.Add(this.AppointmentFormDateTimePickerStartTime);
             this.Controls.Add(this.label9);
@@ -236,7 +245,6 @@
             this.Controls.Add(this.AddAppointmentFormContactTextBox);
             this.Controls.Add(this.AddAppointmentFormTitleTextBox);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -245,7 +253,7 @@
             this.Controls.Add(this.label1);
             this.Name = "AddAppointmentForm";
             this.Text = "AddAppointmentForm";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AddAppointmentFormCustomersDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -259,7 +267,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox AddAppointmentFormTitleTextBox;
         private System.Windows.Forms.TextBox AddAppointmentFormContactTextBox;
@@ -273,5 +280,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DateTimePicker AppointmentFormDateTimePickerStartTime;
         private System.Windows.Forms.DateTimePicker AppointmentFormDateTimePickerEndTime;
+        private System.Windows.Forms.DataGridView AddAppointmentFormCustomersDataGridView;
     }
 }

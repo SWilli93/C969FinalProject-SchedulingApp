@@ -38,11 +38,13 @@
             this.AppointmentFormMonthCalendar = new System.Windows.Forms.MonthCalendar();
             this.desiredDates = new System.Windows.Forms.Label();
             this.AppointmentFormManageCustomersButton = new System.Windows.Forms.Button();
+            this.AppointmentFormRefreshButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.AppointmentFormAppointmentsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // AppointmentFormAppointmentsDataGridView
             // 
+            this.AppointmentFormAppointmentsDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.AppointmentFormAppointmentsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.AppointmentFormAppointmentsDataGridView.Location = new System.Drawing.Point(246, 41);
             this.AppointmentFormAppointmentsDataGridView.Name = "AppointmentFormAppointmentsDataGridView";
@@ -134,11 +136,22 @@
             this.AppointmentFormManageCustomersButton.UseVisualStyleBackColor = true;
             this.AppointmentFormManageCustomersButton.Click += new System.EventHandler(this.AppointmentFormManageCustomersButton_Click);
             // 
+            // AppointmentFormRefreshButton
+            // 
+            this.AppointmentFormRefreshButton.Location = new System.Drawing.Point(446, 12);
+            this.AppointmentFormRefreshButton.Name = "AppointmentFormRefreshButton";
+            this.AppointmentFormRefreshButton.Size = new System.Drawing.Size(72, 23);
+            this.AppointmentFormRefreshButton.TabIndex = 13;
+            this.AppointmentFormRefreshButton.Text = "Refresh";
+            this.AppointmentFormRefreshButton.UseVisualStyleBackColor = true;
+            this.AppointmentFormRefreshButton.Click += new System.EventHandler(this.AppointmentFormRefreshButton_Click);
+            // 
             // AppointmentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(983, 419);
+            this.Controls.Add(this.AppointmentFormRefreshButton);
             this.Controls.Add(this.AppointmentFormManageCustomersButton);
             this.Controls.Add(this.desiredDates);
             this.Controls.Add(this.AppointmentFormMonthCalendar);
@@ -170,5 +183,6 @@
         private System.Windows.Forms.MonthCalendar AppointmentFormMonthCalendar;
         private System.Windows.Forms.Label desiredDates;
         private System.Windows.Forms.Button AppointmentFormManageCustomersButton;
+        private System.Windows.Forms.Button AppointmentFormRefreshButton;
     }
 }
