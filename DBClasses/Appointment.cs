@@ -25,6 +25,9 @@ namespace ScottWilliamsC969FinalProject.DBClasses
 
         public string Url { get; set; }
 
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
+
         public string CreatedBy => _userUpdate.CreatedBy;
 
         public string LastUpdateBy => _userUpdate.LastUpdateBy;

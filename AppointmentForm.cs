@@ -65,17 +65,23 @@ namespace ScottWilliamsC969FinalProject
                     FROM 
                         appointment
                     JOIN 
-                        customer ON customer.customerId = appointment.customerId";
-                using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, DBConnection.Conn))
+                        customer ON customer.customerId = appointment.customerId
+                    WHERE
+                        appointment.userId = @userId";
+                using (MySqlCommand cmd = new MySqlCommand(query, DBConnection.Conn))
                 {
+                    cmd.Parameters.AddWithValue("@userId", DBClasses.User.CurrentUser);
 
-                    DataTable appointmentTable = new DataTable();
-                    adapter.Fill(appointmentTable);
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                    {
+                        DataTable appointmentTable = new DataTable();
+                        adapter.Fill(appointmentTable);
 
 
-                    AppointmentFormAppointmentsDataGridView.DataSource = appointmentTable;
-                    AppointmentFormAppointmentsDataGridView.ClearSelection();
-                    AppointmentFormAppointmentsDataGridView.CurrentCell = null;
+                        AppointmentFormAppointmentsDataGridView.DataSource = appointmentTable;
+                        AppointmentFormAppointmentsDataGridView.ClearSelection();
+                        AppointmentFormAppointmentsDataGridView.CurrentCell = null;
+                    }
                 }
 
 

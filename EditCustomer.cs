@@ -141,6 +141,7 @@ namespace ScottWilliamsC969FinalProject
                         var active = EditCustomerActiveCheckBox.Checked ? 1 : 0;
                         //DBInsert.InsertCustomer(addressId, customerName, active);
                         DBUpdate.UpdateCustomer(SelectedCustomer, customerName, addressId, active, transaction);
+                        
 
                         // Commit transaction
                         transaction.Commit();

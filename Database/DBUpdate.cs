@@ -18,7 +18,8 @@ namespace ScottWilliamsC969FinalProject.Database
             SET 
                 customerName = @customerName, 
                 addressId = @addressId, 
-                active = @active 
+                active = @active, 
+                lastUpdateBy = @lastUpdateBy
             WHERE 
                 customerId = @customerId";
 
@@ -28,6 +29,7 @@ namespace ScottWilliamsC969FinalProject.Database
                 command.Parameters.AddWithValue("@addressId", addressId);
                 command.Parameters.AddWithValue("@active", active);
                 command.Parameters.AddWithValue("@customerId", customerId);
+                command.Parameters.AddWithValue("@lastUpdateBy", DBClasses.User.CurrentUser);
 
                 command.ExecuteNonQuery();
             }
@@ -43,7 +45,8 @@ namespace ScottWilliamsC969FinalProject.Database
                 address2 = @address2, 
                 cityId = @cityId,
                 postalCode = @postalCode,
-                phone = @phoneNumber
+                phone = @phoneNumber,
+                lastUpdateBy = @lastUpdateBy
             WHERE 
                 addressId = @addressId";
 
@@ -55,6 +58,7 @@ namespace ScottWilliamsC969FinalProject.Database
                 command.Parameters.AddWithValue("@postalCode", postalCode);
                 command.Parameters.AddWithValue("@phoneNumber", phoneNumber);
                 command.Parameters.AddWithValue("@addressId", addressId);
+                command.Parameters.AddWithValue("@lastUpdateBy", DBClasses.User.CurrentUser);
 
                 command.ExecuteNonQuery();
             }
