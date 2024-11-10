@@ -111,7 +111,7 @@ namespace ScottWilliamsC969FinalProject
             }
         }
 
-        private DateTime ConvertToUserLocalTime(DateTime utcDateTime)
+        public static DateTime ConvertToUserLocalTime(DateTime utcDateTime)
         {
             TimeZoneInfo userTimeZone = TimeZoneInfo.Local;
             return TimeZoneInfo.ConvertTimeFromUtc(utcDateTime, userTimeZone);

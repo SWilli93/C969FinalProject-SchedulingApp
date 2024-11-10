@@ -119,6 +119,7 @@
             this.EditAppointmentFormSubmitButton.TabIndex = 34;
             this.EditAppointmentFormSubmitButton.Text = "Submit";
             this.EditAppointmentFormSubmitButton.UseVisualStyleBackColor = true;
+            this.EditAppointmentFormSubmitButton.Click += new System.EventHandler(this.EditAppointmentFormSubmitButton_Click);
             // 
             // EditAppointmentFormDescriptionTextBox
             // 

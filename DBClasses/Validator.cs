@@ -72,7 +72,7 @@ namespace ScottWilliamsC969FinalProject.DBClasses
             DateTime bufferedEnd = endEST.AddMinutes(15);
 
 
-            if (!IsWithinBusinessHours(startEST, endEST))
+            if (!IsWithinBusinessOperationHours(startEST, endEST))
             {
                 return false;
             }
@@ -85,15 +85,18 @@ namespace ScottWilliamsC969FinalProject.DBClasses
             return true;
         }
 
-        private static bool IsWithinBusinessHours(DateTime start, DateTime end)
+        private static bool IsWithinBusinessOperationHours(DateTime start, DateTime end)
         {
             int businessStartHour = 9;
             int businessEndHour = 17;
 
-            bool isStartValid = start.Hour >= businessStartHour && (start.Hour < businessEndHour || (start.Hour == businessEndHour && start.Minute == 0));
-            bool isEndValid = end.Hour >= businessStartHour && (end.Hour < businessEndHour || (end.Hour == businessEndHour && end.Minute == 0));
+            bool isSameDay = start.Date == end.Date;
+            bool isStartWeekday = start.DayOfWeek >= DayOfWeek.Monday && start.DayOfWeek <= DayOfWeek.Friday;
+            bool isEndWeekday = end.DayOfWeek >= DayOfWeek.Monday && end.DayOfWeek <= DayOfWeek.Friday;
+            bool isStartTimeValid = start.Hour >= businessStartHour && (start.Hour < businessEndHour || (start.Hour == businessEndHour && start.Minute == 0));
+            bool isEndTimeValid = end.Hour >= businessStartHour && (end.Hour < businessEndHour || (end.Hour == businessEndHour && end.Minute == 0));
 
-            return isStartValid && isEndValid && start < end;
+            return isSameDay && isStartWeekday && isEndWeekday && isStartTimeValid && isEndTimeValid && start < end;
         }
 
         public static bool HasOverlappingAppointments(int userId, DateTime start, DateTime end)
