@@ -44,10 +44,16 @@
             // 
             // AppointmentFormAppointmentsDataGridView
             // 
+            this.AppointmentFormAppointmentsDataGridView.AllowUserToAddRows = false;
+            this.AppointmentFormAppointmentsDataGridView.AllowUserToDeleteRows = false;
+            this.AppointmentFormAppointmentsDataGridView.AllowUserToResizeRows = false;
             this.AppointmentFormAppointmentsDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.AppointmentFormAppointmentsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.AppointmentFormAppointmentsDataGridView.Location = new System.Drawing.Point(246, 41);
+            this.AppointmentFormAppointmentsDataGridView.MultiSelect = false;
             this.AppointmentFormAppointmentsDataGridView.Name = "AppointmentFormAppointmentsDataGridView";
+            this.AppointmentFormAppointmentsDataGridView.ReadOnly = true;
+            this.AppointmentFormAppointmentsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.AppointmentFormAppointmentsDataGridView.Size = new System.Drawing.Size(719, 311);
             this.AppointmentFormAppointmentsDataGridView.TabIndex = 0;
             // 
@@ -78,6 +84,7 @@
             this.AppointmentFormEditButton.TabIndex = 5;
             this.AppointmentFormEditButton.Text = "View/Edit";
             this.AppointmentFormEditButton.UseVisualStyleBackColor = true;
+            this.AppointmentFormEditButton.Click += new System.EventHandler(this.AppointmentFormEditButton_Click);
             // 
             // AppointmentFormDeleteButton
             // 

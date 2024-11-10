@@ -129,5 +129,33 @@ namespace ScottWilliamsC969FinalProject
             AppointmentFormAppointmentsDataGridView.ClearSelection();
             AppointmentFormAppointmentsDataGridView.CurrentCell = null;
         }
+
+        public int SelectedAppointment(DataGridView dataGrid)
+        {
+            int appointmentId = 0;
+
+            if (dataGrid.CurrentRow != null)
+            {
+                DataGridViewRow selectedRow = dataGrid.CurrentRow;
+
+                appointmentId = Convert.ToInt32(selectedRow.Cells["appointmentId"].Value);
+            }
+            return appointmentId;
+        }
+
+        private void AppointmentFormEditButton_Click(object sender, EventArgs e)
+        {
+            int appointmentId = SelectedAppointment(AppointmentFormAppointmentsDataGridView);
+            if (appointmentId == 0)
+            {
+                MessageBox.Show($"Invalid appointment Selection", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                EditAppointmentForm editAppointmentForm = new EditAppointmentForm(appointmentId);
+                editAppointmentForm.Show();
+            }
+        }
     }
 }

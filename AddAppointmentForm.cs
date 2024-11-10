@@ -80,5 +80,10 @@ namespace ScottWilliamsC969FinalProject
                 MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void AddAppointmentFormCancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

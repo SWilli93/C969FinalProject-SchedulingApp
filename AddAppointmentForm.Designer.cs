@@ -42,7 +42,7 @@
             this.AddAppointmentFormURLTextBox = new System.Windows.Forms.TextBox();
             this.AddAppointmentFormDescriptionTextBox = new System.Windows.Forms.RichTextBox();
             this.AddAppointmentFormSubmitButton = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.AddAppointmentFormCancelButton = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.AppointmentFormDateTimePickerStartTime = new System.Windows.Forms.DateTimePicker();
@@ -167,14 +167,15 @@
             this.AddAppointmentFormSubmitButton.UseVisualStyleBackColor = true;
             this.AddAppointmentFormSubmitButton.Click += new System.EventHandler(this.AddAppointmentFormSubmitButton_Click);
             // 
-            // button2
+            // AddAppointmentFormCancelButton
             // 
-            this.button2.Location = new System.Drawing.Point(524, 556);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(116, 26);
-            this.button2.TabIndex = 15;
-            this.button2.Text = "Cancel";
-            this.button2.UseVisualStyleBackColor = true;
+            this.AddAppointmentFormCancelButton.Location = new System.Drawing.Point(524, 556);
+            this.AddAppointmentFormCancelButton.Name = "AddAppointmentFormCancelButton";
+            this.AddAppointmentFormCancelButton.Size = new System.Drawing.Size(116, 26);
+            this.AddAppointmentFormCancelButton.TabIndex = 15;
+            this.AddAppointmentFormCancelButton.Text = "Cancel";
+            this.AddAppointmentFormCancelButton.UseVisualStyleBackColor = true;
+            this.AddAppointmentFormCancelButton.Click += new System.EventHandler(this.AddAppointmentFormCancelButton_Click);
             // 
             // label8
             // 
@@ -236,7 +237,7 @@
             this.Controls.Add(this.AppointmentFormDateTimePickerStartTime);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.AddAppointmentFormCancelButton);
             this.Controls.Add(this.AddAppointmentFormSubmitButton);
             this.Controls.Add(this.AddAppointmentFormDescriptionTextBox);
             this.Controls.Add(this.AddAppointmentFormURLTextBox);
@@ -275,7 +276,7 @@
         private System.Windows.Forms.TextBox AddAppointmentFormURLTextBox;
         private System.Windows.Forms.RichTextBox AddAppointmentFormDescriptionTextBox;
         private System.Windows.Forms.Button AddAppointmentFormSubmitButton;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button AddAppointmentFormCancelButton;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DateTimePicker AppointmentFormDateTimePickerStartTime;
