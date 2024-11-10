@@ -94,6 +94,7 @@
             this.AppointmentFormDeleteButton.TabIndex = 6;
             this.AppointmentFormDeleteButton.Text = "Delete";
             this.AppointmentFormDeleteButton.UseVisualStyleBackColor = true;
+            this.AppointmentFormDeleteButton.Click += new System.EventHandler(this.AppointmentFormDeleteButton_Click);
             // 
             // AppointmentFormWeeklyDayAppointments
             // 

@@ -102,8 +102,8 @@ namespace ScottWilliamsC969FinalProject
                 AppointmentFormAppointmentsDataGridView.Columns["contact"].HeaderText = "Contact";
                 AppointmentFormAppointmentsDataGridView.Columns["type"].HeaderText = "Type";
                 AppointmentFormAppointmentsDataGridView.Columns["url"].HeaderText = "URL";
-                AppointmentFormAppointmentsDataGridView.Columns["start"].HeaderText = "Start Time";
-                AppointmentFormAppointmentsDataGridView.Columns["end"].HeaderText = "End Time";
+                AppointmentFormAppointmentsDataGridView.Columns["start"].HeaderText = "Start Time LocalTime";
+                AppointmentFormAppointmentsDataGridView.Columns["end"].HeaderText = "End Time LocalTime";
             }
             catch (Exception ex)
             {
@@ -156,6 +156,43 @@ namespace ScottWilliamsC969FinalProject
                 EditAppointmentForm editAppointmentForm = new EditAppointmentForm(appointmentId);
                 editAppointmentForm.Show();
             }
+        }
+
+        private void AppointmentFormDeleteButton_Click(object sender, EventArgs e)
+        {
+            int appointmentId = SelectedAppointment(AppointmentFormAppointmentsDataGridView);
+            if (appointmentId > 0)
+            {
+                using (var transaction = DBConnection.Conn.BeginTransaction())
+                {
+                    try
+                    {
+
+                        string deleteAppointmentQuery = "DELETE FROM appointment WHERE appointmentId = @appointmentId";
+                        using (var deleteAppointmentCommand = new MySqlCommand(deleteAppointmentQuery, DBConnection.Conn, transaction))
+                        {
+                            deleteAppointmentCommand.Parameters.AddWithValue("@appointmentId", appointmentId);
+                            deleteAppointmentCommand.ExecuteNonQuery();
+                        }
+
+                        transaction.Commit();
+
+                        MessageBox.Show("Appointment was deleted successfully.");
+                        LoadAppointmentData();
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        MessageBox.Show($"An error occurred: {ex.Message}");
+                    }
+                }
+            }
+            else
+            { 
+                MessageBox.Show($"Invalid appointment Selection", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
         }
     }
 }

@@ -90,7 +90,7 @@ namespace ScottWilliamsC969FinalProject.DBClasses
             int businessStartHour = 9;
             int businessEndHour = 17;
 
-            bool isSameDay = start.Date == end.Date;
+            bool isSameDay = start.DayOfWeek == end.DayOfWeek;
             bool isStartWeekday = start.DayOfWeek >= DayOfWeek.Monday && start.DayOfWeek <= DayOfWeek.Friday;
             bool isEndWeekday = end.DayOfWeek >= DayOfWeek.Monday && end.DayOfWeek <= DayOfWeek.Friday;
             bool isStartTimeValid = start.Hour >= businessStartHour && (start.Hour < businessEndHour || (start.Hour == businessEndHour && start.Minute == 0));

@@ -29,7 +29,7 @@ namespace ScottWilliamsC969FinalProject
                 {
                     if (!Validator.IsValidAppointment(AppointmentFormDateTimePickerStartTime.Value, AppointmentFormDateTimePickerEndTime.Value))
                     {
-                        MessageBox.Show("The appointment is invalid. Please Ensure Appointments Are Scheduled Monday through Friday from 9am to 5pm. If this is within the appropriate time the appointment may be overlapping another appointment, in this case please choose another time", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("The appointment is invalid. Your appointment time is set to your Local time, please Ensure Appointments Are Scheduled Monday through Friday from 9am to 5pm EST. If this is within the appropriate time the appointment may be overlapping another appointment, in this case please choose another time", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
 
