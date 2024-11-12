@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using ScottWilliamsC969FinalProject.Database;
 using ScottWilliamsC969FinalProject.DBClasses;
+using ScottWilliamsC969FinalProject.DBReports;
 using System;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -36,12 +37,11 @@ namespace ScottWilliamsC969FinalProject
             {
                 if (ValidateCredentials(username, password))
                 {
-                    RecordLogin(username);
+                    Reporting.RecordLogin(username);
                     User.CurrentUser = DBQueries.GetUserId(username, password);
                     MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     AppointmentForm apptfrm = new AppointmentForm();
                     apptfrm.Show();
-                    //this.Hide();
                 }
                 else
                 {
@@ -81,23 +81,6 @@ namespace ScottWilliamsC969FinalProject
             LoginErrorLabel.ForeColor = Color.Red;
         }
 
-
-
-        private void RecordLogin(string username)
-        {
-            string filePath = "Login_History.txt";
-            string timestamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            string logEntry = $"{timestamp} - {username}";
-
-            try
-            {
-                File.AppendAllText(filePath, logEntry + Environment.NewLine);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error writing to log file: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
 
         private bool ValidateCredentials(string username, string password)
         {

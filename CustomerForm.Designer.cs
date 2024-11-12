@@ -82,6 +82,7 @@
             this.CustomerFormAppointmentsButton.TabIndex = 5;
             this.CustomerFormAppointmentsButton.Text = "Manage Appointments";
             this.CustomerFormAppointmentsButton.UseVisualStyleBackColor = true;
+            this.CustomerFormAppointmentsButton.Click += new System.EventHandler(this.CustomerFormAppointmentsButton_Click);
             // 
             // CustomerFormAddButton
             // 

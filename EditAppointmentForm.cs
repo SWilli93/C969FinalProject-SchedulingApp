@@ -42,14 +42,12 @@ namespace ScottWilliamsC969FinalProject
 
             using (MySqlCommand cmd = new MySqlCommand(query, DBConnection.Conn))
             {
-                // Use parameterized query to prevent SQL injection
                 cmd.Parameters.AddWithValue("@appointmentId", AppointmentId);
 
                 using (MySqlDataReader reader = cmd.ExecuteReader())
                 {
                     if (reader.Read())
                     {
-                        // Assuming you have TextBox controls on your form
                         customerId = Convert.ToInt32(reader["customerId"]);
                         EditAppointmentFormTitleTextBox.Text = reader["title"].ToString();
                         EditAppointmentFormContactTextBox.Text = reader["contact"].ToString();
@@ -69,10 +67,8 @@ namespace ScottWilliamsC969FinalProject
 
             foreach (DataGridViewRow row in EditAppointmentFormCustomersDataGridView.Rows)
             {
-                // Check if the customerId in the row matches the target customerId
                 if (row.Cells["customerId"].Value != null && (int)row.Cells["customerId"].Value == customerId)
                 {
-                    // Select the row and scroll to it if necessary
                     row.Selected = true;
                     EditAppointmentFormCustomersDataGridView.FirstDisplayedScrollingRowIndex = row.Index;
                     break;

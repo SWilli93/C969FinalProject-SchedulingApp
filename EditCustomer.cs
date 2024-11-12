@@ -49,14 +49,12 @@ namespace ScottWilliamsC969FinalProject
 
             using (MySqlCommand cmd = new MySqlCommand(query, DBConnection.Conn))
             {
-                // Use parameterized query to prevent SQL injection
                 cmd.Parameters.AddWithValue("@CustomerId", SelectedCustomer);
 
                 using (MySqlDataReader reader = cmd.ExecuteReader())
                 {
                     if (reader.Read())
                     {
-                        // Assuming you have TextBox controls on your form
                         EditCustomerNameTextBox.Text = reader["CustomerName"].ToString();
                         addressId = Convert.ToInt32(reader["addressId"]);
                         EditCustomerPhoneNumberTextBox.Text = reader["phone"].ToString();
@@ -95,7 +93,6 @@ namespace ScottWilliamsC969FinalProject
                 {
                     try
                     { 
-                        // Start Validation Checks
                         if (!Validator.ValidateCustomer(EditCustomerNameTextBox.Text))
                         {
                             MessageBox.Show("Customer name is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

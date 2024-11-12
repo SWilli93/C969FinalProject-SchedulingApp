@@ -13,7 +13,6 @@ namespace ScottWilliamsC969FinalProject.DBClasses
     {
         public static int InsertCountry(string countryName)
         {
-            // Save Country to DB
             Country newCountry = new Country();
             newCountry.CountryName = countryName;
 
@@ -40,10 +39,8 @@ namespace ScottWilliamsC969FinalProject.DBClasses
             return newCountryId;
         }
 
-        // Insert city and return new ID.
         public static int InsertCity(int countryId, string cityName)
         {
-            // Save City to DB
             City newCity = new City();
             newCity.CityName = cityName;
             newCity.CountryId = countryId;
@@ -72,10 +69,8 @@ namespace ScottWilliamsC969FinalProject.DBClasses
             return newCityId;
         }
 
-        // Insert address and return new ID.
         public static int InsertAddress(int cityId, string address1, string address2, string postalCode, string phoneNumber)
         {
-            // Save Address to DB
             Address newAddress = new Address();
             newAddress.AddressName = address1;
             newAddress.AddressName2 = address2;
@@ -110,10 +105,8 @@ namespace ScottWilliamsC969FinalProject.DBClasses
             return newAddressId;
         }
 
-        // Insert customer without returning ID.
         public static void InsertCustomer(int addressId, string customerName, int active)
         {
-            // Save Customer to DB
             Customer newCustomer = new Customer();
             newCustomer.CustomerName = customerName;
             newCustomer.AddressId = addressId;

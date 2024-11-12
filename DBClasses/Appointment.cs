@@ -20,6 +20,7 @@ namespace ScottWilliamsC969FinalProject.DBClasses
         public string Description { get; set; }
 
         public string Location { get; set; }
+        public string Contact { get; set; }
 
         public string Type { get; set; }
 

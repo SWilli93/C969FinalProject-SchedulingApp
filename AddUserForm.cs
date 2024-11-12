@@ -32,11 +32,6 @@ namespace ScottWilliamsC969FinalProject
                 newUser.Username = this.NewUserFormUsernameTextBox.Text;
                 newUser.Password = this.NewUserFormPassword1TextBox.Text;
                 newUser.Active = 1;
-                //newUser.CreateDate = newUser.CreateDate;
-                //newUser.CreatedBy = ;
-                //newUser.LastUpdate = newUser.LastUpdate;
-                //newUser.LastUpdatedBy = ;
-            
 
 
                 string query = "INSERT INTO User (Username, Password, Active, CreateDate, CreatedBy, LastUpdate, LastUpdateBy ) VALUES (@userName, @password, @active, @CreateDate, @CreatedBy, @lastUpdate, @lastUpdateBy)";
@@ -44,7 +39,7 @@ namespace ScottWilliamsC969FinalProject
                 using (MySqlCommand command = new MySqlCommand(query, DBConnection.Conn))
                 {
                     command.Parameters.AddWithValue("@username", newUser.Username);
-                    command.Parameters.AddWithValue("@password", newUser.Password); // Ensure to hash passwords!
+                    command.Parameters.AddWithValue("@password", newUser.Password);
                     command.Parameters.AddWithValue("@active", newUser.Active);
                     command.Parameters.AddWithValue("@createDate", newUser.CreateDate);
                     command.Parameters.AddWithValue("@CreatedBy", "newUser");

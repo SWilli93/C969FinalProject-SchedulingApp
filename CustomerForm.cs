@@ -162,5 +162,10 @@ namespace ScottWilliamsC969FinalProject
             CustomerFormCustomersDataGridView.ClearSelection();
             CustomerFormCustomersDataGridView.CurrentCell = null;
         }
+
+        private void CustomerFormAppointmentsButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

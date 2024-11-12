@@ -67,7 +67,6 @@ namespace ScottWilliamsC969FinalProject.DBClasses
             DateTime startEST = TimeZoneInfo.ConvertTime(startTime, EasternStandardTimeZone);
             DateTime endEST = TimeZoneInfo.ConvertTime(endTime, EasternStandardTimeZone);
 
-            //15min appointment buffer
             DateTime bufferedStart = startEST.AddMinutes(-15);
             DateTime bufferedEnd = endEST.AddMinutes(15);
 

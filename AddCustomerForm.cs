@@ -30,7 +30,6 @@ namespace ScottWilliamsC969FinalProject
 
                 using (var transaction = DBConnection.Conn.BeginTransaction())
                 {
-                    // Start Validation Checks
                     if (!Validator.ValidateCustomer(AddCustomerNameTextBox.Text))
                     {
                         MessageBox.Show("Customer name is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -47,7 +46,6 @@ namespace ScottWilliamsC969FinalProject
                         return;
                     }
 
-                    // Process Country
                     var countryName = AddCustomerCountryTextBox.Text.Trim();
                     int countryId = DBQueries.GetCountryId(countryName);
                     if (countryId == 0)
@@ -55,7 +53,6 @@ namespace ScottWilliamsC969FinalProject
                         countryId = DBInsert.InsertCountry(countryName);
                     }
 
-                    // Process City
                     var cityName = AddCustomerCityTextBox.Text.Trim();
                     int cityId = DBQueries.GetCityId(cityName);
                     if (cityId == 0)
@@ -63,7 +60,6 @@ namespace ScottWilliamsC969FinalProject
                         cityId = DBInsert.InsertCity(countryId, cityName);
                     }
 
-                    // Process Address
                     var address1 = AddCustomerAddress1TextBox.Text.Trim();
                     var address2 = AddCustomerAddress2TextBox.Text.Trim();
                     var postalCode = AddCustomerPostalCodeTextBox.Text.Trim();
@@ -75,12 +71,10 @@ namespace ScottWilliamsC969FinalProject
                         addressId = DBInsert.InsertAddress(cityId, address1, address2, postalCode, phoneNumber);
                     }
 
-                    // Process Customer
                     var customerName = AddCustomerNameTextBox.Text.Trim();
                     var active = AddCustomerActiveCheckBox.Checked? 1 : 0;
                     DBInsert.InsertCustomer(addressId, customerName, active);
 
-                    // Commit transaction
                     transaction.Commit();
                     MessageBox.Show("Customer has been saved successfully.");
                     this.Close();

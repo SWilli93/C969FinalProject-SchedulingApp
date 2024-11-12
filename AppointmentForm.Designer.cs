@@ -39,6 +39,8 @@
             this.desiredDates = new System.Windows.Forms.Label();
             this.AppointmentFormManageCustomersButton = new System.Windows.Forms.Button();
             this.AppointmentFormRefreshButton = new System.Windows.Forms.Button();
+            this.AppointmentFormSubmitDateButton = new System.Windows.Forms.Button();
+            this.AppointmentFormReportsButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.AppointmentFormAppointmentsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,7 +62,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(246, 7);
+            this.label1.Location = new System.Drawing.Point(243, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(71, 13);
             this.label1.TabIndex = 1;
@@ -114,6 +116,7 @@
             this.AppointmentFormAllAppointments.TabIndex = 9;
             this.AppointmentFormAllAppointments.Text = "All";
             this.AppointmentFormAllAppointments.UseVisualStyleBackColor = true;
+            this.AppointmentFormAllAppointments.Click += new System.EventHandler(this.AppointmentFormAllAppointments_Click);
             // 
             // AppointmentFormMonthCalendar
             // 
@@ -121,13 +124,14 @@
             this.AppointmentFormMonthCalendar.Location = new System.Drawing.Point(17, 105);
             this.AppointmentFormMonthCalendar.MaxSelectionCount = 31;
             this.AppointmentFormMonthCalendar.Name = "AppointmentFormMonthCalendar";
+            this.AppointmentFormMonthCalendar.ShowTodayCircle = false;
             this.AppointmentFormMonthCalendar.TabIndex = 10;
             this.AppointmentFormMonthCalendar.Visible = false;
             // 
             // desiredDates
             // 
             this.desiredDates.AutoSize = true;
-            this.desiredDates.Location = new System.Drawing.Point(82, 276);
+            this.desiredDates.Location = new System.Drawing.Point(46, 276);
             this.desiredDates.Name = "desiredDates";
             this.desiredDates.Size = new System.Drawing.Size(107, 13);
             this.desiredDates.TabIndex = 11;
@@ -146,7 +150,7 @@
             // 
             // AppointmentFormRefreshButton
             // 
-            this.AppointmentFormRefreshButton.Location = new System.Drawing.Point(446, 12);
+            this.AppointmentFormRefreshButton.Location = new System.Drawing.Point(424, 358);
             this.AppointmentFormRefreshButton.Name = "AppointmentFormRefreshButton";
             this.AppointmentFormRefreshButton.Size = new System.Drawing.Size(72, 23);
             this.AppointmentFormRefreshButton.TabIndex = 13;
@@ -154,11 +158,34 @@
             this.AppointmentFormRefreshButton.UseVisualStyleBackColor = true;
             this.AppointmentFormRefreshButton.Click += new System.EventHandler(this.AppointmentFormRefreshButton_Click);
             // 
+            // AppointmentFormSubmitDateButton
+            // 
+            this.AppointmentFormSubmitDateButton.Location = new System.Drawing.Point(159, 271);
+            this.AppointmentFormSubmitDateButton.Name = "AppointmentFormSubmitDateButton";
+            this.AppointmentFormSubmitDateButton.Size = new System.Drawing.Size(75, 23);
+            this.AppointmentFormSubmitDateButton.TabIndex = 14;
+            this.AppointmentFormSubmitDateButton.Text = "Submit";
+            this.AppointmentFormSubmitDateButton.UseVisualStyleBackColor = true;
+            this.AppointmentFormSubmitDateButton.Visible = false;
+            this.AppointmentFormSubmitDateButton.Click += new System.EventHandler(this.AppointmentFormSubmitDateButton_Click);
+            // 
+            // AppointmentFormReportsButton
+            // 
+            this.AppointmentFormReportsButton.Location = new System.Drawing.Point(246, 359);
+            this.AppointmentFormReportsButton.Name = "AppointmentFormReportsButton";
+            this.AppointmentFormReportsButton.Size = new System.Drawing.Size(72, 23);
+            this.AppointmentFormReportsButton.TabIndex = 15;
+            this.AppointmentFormReportsButton.Text = "Reports";
+            this.AppointmentFormReportsButton.UseVisualStyleBackColor = true;
+            this.AppointmentFormReportsButton.Click += new System.EventHandler(this.AppointmentFormReportsButton_Click);
+            // 
             // AppointmentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(983, 419);
+            this.Controls.Add(this.AppointmentFormReportsButton);
+            this.Controls.Add(this.AppointmentFormSubmitDateButton);
             this.Controls.Add(this.AppointmentFormRefreshButton);
             this.Controls.Add(this.AppointmentFormManageCustomersButton);
             this.Controls.Add(this.desiredDates);
@@ -192,5 +219,7 @@
         private System.Windows.Forms.Label desiredDates;
         private System.Windows.Forms.Button AppointmentFormManageCustomersButton;
         private System.Windows.Forms.Button AppointmentFormRefreshButton;
+        private System.Windows.Forms.Button AppointmentFormSubmitDateButton;
+        private System.Windows.Forms.Button AppointmentFormReportsButton;
     }
 }
