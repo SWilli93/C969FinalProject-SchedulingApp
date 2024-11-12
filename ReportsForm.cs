@@ -21,6 +21,7 @@ namespace ScottWilliamsC969FinalProject
         {
             InitializeComponent();
             GetAllAppointments();
+
         }
 
         private void ReportsFormCloseButton_Click(object sender, EventArgs e)
@@ -30,17 +31,20 @@ namespace ScottWilliamsC969FinalProject
 
         private void ReportsFormAppointmentsByMonthButton_Click(object sender, EventArgs e)
         {
+
             Reporting.RecordAppointmentTypesByMonth(appointments);
         }
 
         private void ReportsFormUserScheduleButton_Click(object sender, EventArgs e)
         {
+
             Reporting.RecordUserSchedules(appointments);
         }
 
         private void ReportsFormCustomerHoursButton_Click(object sender, EventArgs e)
         {
             Reporting.RecordTotalAppointmentHoursByCustomer(appointments);
+            //MessageBox.Show("Recorded successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public void GetAllAppointments()
@@ -51,24 +55,28 @@ namespace ScottWilliamsC969FinalProject
             {
                 using (MySqlCommand cmd = new MySqlCommand(query, DBConnection.Conn))
                 {
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
                     {
-                        while (reader.Read())
+                        DataTable appointmentTable = new DataTable();
+                        adapter.Fill(appointmentTable);
+
+                        foreach (DataRow row in appointmentTable.Rows)
                         {
                             Appointment appointment = new Appointment
                             {
-                                AppointmentId = reader.GetInt32("appointmentId"),
-                                CustomerId = reader.GetInt32("customerId"),
-                                UserId = reader.GetInt32("userId"),
-                                Name = reader.GetString("title"),
-                                Description = reader.GetString("description"),
-                                Location = reader.GetString("location"),
-                                Contact = reader.GetString("contact"),
-                                Type = reader.GetString("type"),
-                                Url = reader.GetString("url"),
-                                Start = reader.GetDateTime("start"),
-                                End = reader.GetDateTime("end")
+                                AppointmentId = Convert.ToInt32(row["appointmentId"]),
+                                CustomerId = Convert.ToInt32(row["customerId"]),
+                                UserId = Convert.ToInt32(row["userId"]),
+                                Name = row["title"].ToString(),
+                                Description = row["description"].ToString(),
+                                Location = row["location"].ToString(),
+                                Contact = row["contact"].ToString(),
+                                Type = row["type"].ToString(),
+                                Url = row["url"].ToString(),
+                                Start = Convert.ToDateTime(row["start"]),
+                                End = Convert.ToDateTime(row["end"])
                             };
+
                             if (!appointments.Any(a => a.AppointmentId == appointment.AppointmentId))
                             {
                                 appointments.Add(appointment);

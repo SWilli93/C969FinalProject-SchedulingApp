@@ -13,7 +13,7 @@ namespace ScottWilliamsC969FinalProject.DBReports
     {
         public static void RecordLogin(string username)
         {
-            string folderPath = "Report Files";
+            string folderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Generated_Reports");
             if (!Directory.Exists(folderPath))
             {
                 Directory.CreateDirectory(folderPath);
@@ -26,17 +26,18 @@ namespace ScottWilliamsC969FinalProject.DBReports
             try
             {
                 File.AppendAllText(filePath, logEntry + Environment.NewLine);
+               
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error writing to log file: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         // number of appointment types by month
         public static void RecordAppointmentTypesByMonth(List<Appointment> appointments)
         {
-            string folderPath = "Reports";
+            string folderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Generated_Reports");
             if (!Directory.Exists(folderPath))
             {
                 Directory.CreateDirectory(folderPath);
@@ -64,6 +65,7 @@ namespace ScottWilliamsC969FinalProject.DBReports
                     }
                     File.AppendAllText(filePath, Environment.NewLine);
                 }
+                MessageBox.Show("Report generated successfully. Please check your My Documents folder.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -74,7 +76,8 @@ namespace ScottWilliamsC969FinalProject.DBReports
         // schedule for each User
         public static void RecordUserSchedules(List<Appointment> appointments)
         {
-            string folderPath = "Reports";
+
+            string folderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Generated_Reports");
             if (!Directory.Exists(folderPath))
             {
                 Directory.CreateDirectory(folderPath);
@@ -97,6 +100,7 @@ namespace ScottWilliamsC969FinalProject.DBReports
                     }
                     File.AppendAllText(filePath, Environment.NewLine);
                 }
+                MessageBox.Show("Report generated successfully. Please check your My Documents folder.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -107,7 +111,8 @@ namespace ScottWilliamsC969FinalProject.DBReports
         // appointment Hours by customer
         public static void RecordTotalAppointmentHoursByCustomer(List<Appointment> appointments)
         {
-            string folderPath = "Reports";
+            string folderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Generated_Reports");
+
             if (!Directory.Exists(folderPath))
             {
                 Directory.CreateDirectory(folderPath);
@@ -128,11 +133,14 @@ namespace ScottWilliamsC969FinalProject.DBReports
                 {
                     File.AppendAllText(filePath, $"Customer ID: {customer.Key}, Total Hours: {customer.Value}{Environment.NewLine}");
                 }
+                File.AppendAllText(filePath, Environment.NewLine);
+                MessageBox.Show("Report generated successfully. Please check your My Documents folder.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error writing to report file: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
     }
 }

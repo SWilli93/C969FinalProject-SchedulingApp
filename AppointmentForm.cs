@@ -293,8 +293,7 @@ namespace ScottWilliamsC969FinalProject
                 appointment 
             WHERE 
                 appointment.userId = @userId
-                AND appointment.start BETWEEN @currentTime AND @alertThreshold
-            LIMIT 1";
+                AND appointment.start BETWEEN @currentTime AND @alertThreshold";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, DBConnection.Conn))
                 {
